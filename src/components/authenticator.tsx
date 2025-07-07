@@ -248,7 +248,7 @@ export function Authenticator({
         </div>
         <Button
           type="submit"
-          className="h-12 text-base font-semibold shrink-0 shadow-[5px_5px_0px_rgba(168,85,247,0.3)]"
+          className="h-12 text-base font-semibold shrink-0 shadow-[5px_5px_0px_rgba(255,255,255,0.1)]"
           disabled={status === 'loading'}
           variant={buttonVariant}
         >
