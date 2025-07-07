@@ -15,7 +15,10 @@ export default function Home() {
             Xác minh kênh mua hàng chính hãng
           </h2>
           <p className="max-w-xl text-muted-foreground">
-            Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng. MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.
+            Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.
+          </p>
+          <p className="max-w-xl text-muted-foreground">
+            MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.
           </p>
         </header>
 
