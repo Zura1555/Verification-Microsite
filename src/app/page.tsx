@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
       <div className="flex flex-1 w-full flex-col items-center justify-center bg-background px-4 py-8 sm:px-6 md:py-12">
-        <main className="w-full max-w-2xl space-y-8">
+        <main className="w-full max-w-4xl space-y-8">
           <header className="flex flex-col items-center space-y-4 text-center">
             <MaisonLogo className="h-12 w-40" />
             <h2 className="font-headline text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
