@@ -1,8 +1,41 @@
-import { Authenticator } from '@/components/authenticator';
+
+'use client';
+
+import dynamic from 'next/dynamic';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import Image from 'next/image';
 import { Faq } from '@/components/faq';
+import { Skeleton } from '@/components/ui/skeleton';
+
+// Dynamically import the Authenticator component with SSR turned off.
+const Authenticator = dynamic(
+  () => import('@/components/authenticator').then(mod => mod.Authenticator), 
+  { 
+    ssr: false,
+    // Provide a loading skeleton to prevent layout shift and improve UX.
+    loading: () => (
+      <div className="w-full space-y-6 rounded-lg border bg-card/80 p-6 shadow-sm backdrop-blur-sm">
+        <div className="space-y-3">
+          <Skeleton className="h-4 w-1/3 mx-auto bg-muted/40" />
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Skeleton className="h-10 w-40 rounded-md bg-muted/40" />
+            <Skeleton className="h-10 w-48 rounded-md bg-muted/40" />
+            <Skeleton className="h-10 w-44 rounded-md bg-muted/40" />
+          </div>
+        </div>
+        
+        <div className="space-y-4">
+          <Skeleton className="h-12 w-full bg-muted/40" />
+          <Skeleton className="h-12 w-full bg-muted/40" />
+        </div>
+        
+        <div className="min-h-[148px] pt-2" />
+      </div>
+    ),
+  }
+);
+
 
 export default function V3Page() {
   return (
