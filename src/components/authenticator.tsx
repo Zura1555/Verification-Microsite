@@ -73,8 +73,11 @@ export function Authenticator({
   const [status, setStatus] = useState<VerificationStatus>("idle");
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+
     const handleResize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     };
@@ -196,7 +199,7 @@ export function Authenticator({
 
   return (
     <div className={cn("w-full space-y-6 rounded-lg border bg-card p-6 shadow-sm", containerClassName)}>
-      {showConfetti && <ReactConfetti width={windowSize.width} height={windowSize.height} recycle={false} onConfettiComplete={() => setShowConfetti(false)} className="!fixed z-50" />}
+      {isMounted && showConfetti && <ReactConfetti width={windowSize.width} height={windowSize.height} recycle={false} onConfettiComplete={() => setShowConfetti(false)} className="!fixed z-50" />}
 
       <div className="space-y-3">
         <p className="text-center text-sm text-muted-foreground">Hoặc thử với ví dụ:</p>
