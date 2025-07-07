@@ -13,7 +13,7 @@ export default function V3Page() {
           {/* Background Logo */}
           <div className="absolute inset-0 z-0 flex items-center justify-center">
             <Image
-              src="https://mdm.maisonrmi.com/assets/858c71b3-5aff-4c3f-b485-a07a9953097c?key=system-small-cover"
+              src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2023/04/MicrosoftTeams-image.png?fit=2560%2C1062&ssl=1"
               alt="Maison Logo Background"
               width={600}
               height={600}

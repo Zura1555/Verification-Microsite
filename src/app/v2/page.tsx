@@ -13,10 +13,7 @@ export default function V2Page() {
         <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
           <main className="w-full max-w-2xl space-y-8">
             <header className="flex flex-col items-center space-y-4 text-center">
-              <MaisonLogo className="h-16 w-16" />
-              <h1 className="font-headline text-3xl font-bold tracking-tighter text-primary sm:text-4xl">
-                MAISON RETAIL
-              </h1>
+              <MaisonLogo className="h-12 w-40" />
               <h2 className="font-headline text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                 Xác minh kênh mua hàng chính hãng
               </h2>

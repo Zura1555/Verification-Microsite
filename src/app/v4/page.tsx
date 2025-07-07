@@ -1,4 +1,3 @@
-
 import { Authenticator } from '@/components/authenticator';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -12,10 +11,7 @@ export default function V4Page() {
       <main className="flex flex-1 items-center justify-center p-4">
         <div className="w-full max-w-lg space-y-8 text-center">
           <header className="flex flex-col items-center space-y-4">
-            <MaisonLogo className="h-16 w-16" />
-            <h1 className="font-headline text-3xl font-bold tracking-tighter text-primary sm:text-4xl">
-              MAISON RETAIL
-            </h1>
+            <MaisonLogo className="h-12 w-40" />
             <h2 className="font-headline text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               Xác minh kênh mua hàng chính hãng
             </h2>

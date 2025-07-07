@@ -7,7 +7,7 @@ export function SiteHeader({ className }: { className?: string }) {
     <header className={cn("sticky top-0 z-40 w-full border-b bg-background", className)}>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
-          <MaisonLogo className="h-8 w-8" />
+          <MaisonLogo className="h-8 w-28" />
         </Link>
         <div className="hidden sm:block text-sm text-muted-foreground">
             Official Channel Verification

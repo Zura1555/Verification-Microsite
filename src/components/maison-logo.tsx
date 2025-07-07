@@ -5,16 +5,16 @@ export function MaisonLogo({ className, ...props }: React.HTMLAttributes<HTMLDiv
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-lg bg-primary",
+        "relative",
         className
       )}
       {...props}
     >
       <Image
-        src="https://mdm.maisonrmi.com/assets/858c71b3-5aff-4c3f-b485-a07a9953097c?key=system-small-cover"
+        src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2023/04/MicrosoftTeams-image.png?fit=2560%2C1062&ssl=1"
         alt="Maison Logo"
         fill
-        className="object-cover"
+        className="object-contain"
       />
     </div>
   );

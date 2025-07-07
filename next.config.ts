@@ -27,7 +27,13 @@ const nextConfig: NextConfig = {
         hostname: 'mdm.maisonrmi.com',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'i0.wp.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
