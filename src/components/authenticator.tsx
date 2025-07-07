@@ -82,9 +82,11 @@ export function Authenticator({
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    if (typeof window !== 'undefined') {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
 
@@ -157,8 +159,9 @@ export function Authenticator({
         );
       case "suspicious":
         return (
-          <Alert variant="destructive">
-            <AlertTitle>⚠️ Không thuộc hệ thống MAISON</AlertTitle>
+          <Alert variant="warning">
+            <Info className="h-4 w-4" />
+            <AlertTitle>Không thuộc hệ thống MAISON</AlertTitle>
             <AlertDescription>
               <p className="mb-4">Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
                <Button variant="outline" size="sm">
