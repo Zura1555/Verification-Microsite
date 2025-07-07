@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -220,7 +219,7 @@ export function Authenticator({
             type="text"
             placeholder="nhập website, facebook, tiktok, instagram..."
             className={cn(
-              "h-12 text-base focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#BFA181]",
+              "h-12 text-base focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[rgba(0,0,0,0.2)]",
               !hideSearchIcon && "pl-10",
               input.length > 0 && "pr-10",
               inputClassName
