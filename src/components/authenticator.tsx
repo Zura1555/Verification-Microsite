@@ -7,12 +7,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Search, CheckCircle2, ShieldX, AlertTriangle, ShieldCheck } from "lucide-react";
 
-const officialChannels = [
-  "maisononline.vn",
-  "facebook.com/mlb.kr.vn",
-];
-
-type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid";
+type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious";
 
 export function Authenticator() {
   const [input, setInput] = useState("");
@@ -29,15 +24,40 @@ export function Authenticator() {
     setInput(value);
 
     setTimeout(() => {
-        const normalizedInput = value.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '');
+        const officialDomains = ["maisononline.vn"];
+        const officialHandles = ["mlb.kr.vn"];
+
+        let cleanInput = value.toLowerCase().trim();
+        const isSocialInput = cleanInput.startsWith('@');
         
-        const isOfficial = officialChannels.some(channel => normalizedInput.startsWith(channel));
+        cleanInput = cleanInput.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '').replace(/^@/, '');
         
-        if (isOfficial) {
-          setStatus("official");
-        } else {
-          setStatus("unofficial");
+        const inputParts = cleanInput.split('/');
+        const inputDomain = inputParts[0];
+
+        // Official Check
+        if (officialDomains.includes(inputDomain)) {
+            setStatus("official");
+            return;
         }
+        if (officialHandles.some(h => cleanInput.endsWith(h))) {
+             setStatus("official");
+             return;
+        }
+
+        // Suspicious Check
+        if (inputDomain.includes('maisononline.vn')) {
+            setStatus("suspicious");
+            return;
+        }
+
+        if (isSocialInput && cleanInput.includes('mlb') && cleanInput.includes('vietnam')) {
+             setStatus("suspicious");
+             return;
+        }
+
+        // Unofficial Check for everything else
+        setStatus("unofficial");
     }, 1500);
   };
 
@@ -59,6 +79,16 @@ export function Authenticator() {
             <AlertTitle>Kênh chính hãng!</AlertTitle>
             <AlertDescription>
               Đây là một kênh bán hàng chính thức của MAISON. Bạn có thể yên tâm mua sắm.
+            </AlertDescription>
+          </Alert>
+        );
+      case "suspicious":
+        return (
+          <Alert variant="destructive">
+            <AlertTriangle className="h-4 w-4" />
+            <AlertTitle>Kênh có dấu hiệu đáng ngờ</AlertTitle>
+            <AlertDescription>
+              Kênh này không nằm trong danh sách chính thức và có dấu hiệu đáng ngờ. Vui lòng cẩn trọng.
             </AlertDescription>
           </Alert>
         );
@@ -116,13 +146,17 @@ export function Authenticator() {
       <div className="space-y-3">
         <p className="text-sm text-center text-muted-foreground">Hoặc thử với ví dụ:</p>
         <div className="flex flex-wrap items-center justify-center gap-2">
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('maisononline.vn')}>
+            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('www.maisononline.vn')}>
                 <CheckCircle2 className="mr-1.5 h-3.5 w-3.5" />
-                maisononline.vn
+                www.maisononline.vn
             </Badge>
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('facebook.com/mlb.kr.vn')}>
-                <CheckCircle2 className="mr-1.5 h-3.5 w-3.5" />
-                facebook.com/mlb.kr.vn
+            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('maisonline.vn.co')}>
+                <AlertTriangle className="mr-1.5 h-3.5 w-3.5" />
+                maisonline.vn.co
+            </Badge>
+            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('fakecharleskeith.vn')}>
+                <ShieldX className="mr-1.5 h-3.5 w-3.5" />
+                fakecharleskeith.vn
             </Badge>
         </div>
       </div>
