@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'online.gov.vn',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 };
