@@ -1,18 +1,35 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ReactConfetti from 'react-confetti';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Search, AlertTriangle } from "lucide-react";
+import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert } from "lucide-react";
 
 type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious";
 
 export function Authenticator() {
   const [input, setInput] = useState("");
+  const [verifiedUrl, setVerifiedUrl] = useState("");
   const [status, setStatus] = useState<VerificationStatus>("idle");
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    if (typeof window !== 'undefined') {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
 
   const handleVerify = (urlToVerify: string) => {
     const value = urlToVerify.trim();
@@ -23,6 +40,7 @@ export function Authenticator() {
 
     setStatus("loading");
     setInput(value);
+    setVerifiedUrl(value);
 
     setTimeout(() => {
         const officialDomains = ["maisononline.vn"];
@@ -35,22 +53,14 @@ export function Authenticator() {
         const domainOrHandle = cleanInput.split('/')[0];
 
         // Official Check
-        if (officialDomains.includes(domainOrHandle)) {
+        if (officialDomains.includes(domainOrHandle) || officialHandles.includes(cleanInput)) {
             setStatus("official");
+            setShowConfetti(true);
             return;
-        }
-        if (officialHandles.includes(cleanInput)) {
-             setStatus("official");
-             return;
         }
 
         // Suspicious Check
-        if (domainOrHandle.includes('maisononline.vn')) {
-            setStatus("suspicious");
-            return;
-        }
-
-        if (cleanInput.includes('mlbvietnamofficial')) {
+        if (domainOrHandle.includes('maisononline.vn') || cleanInput.includes('mlbvietnamofficial')) {
             setStatus("suspicious");
             return;
         }
@@ -71,6 +81,17 @@ export function Authenticator() {
   }
 
   const renderResult = () => {
+    const reportHref = `mailto:support@maison.vn?subject=Báo cáo trang web giả mạo&body=Tôi muốn báo cáo trang web sau đây là đáng ngờ: ${encodeURIComponent(verifiedUrl)}`;
+    
+    let officialLink = verifiedUrl;
+    if (verifiedUrl) {
+      if (verifiedUrl.startsWith('@')) {
+        officialLink = `https://www.facebook.com/${verifiedUrl.substring(1)}`;
+      } else if (!verifiedUrl.match(/^https?:\/\//)) {
+        officialLink = `https://${verifiedUrl}`;
+      }
+    }
+
     switch (status) {
       case "official":
         return (
@@ -78,7 +99,13 @@ export function Authenticator() {
             <AlertTitle>✅ Chính hãng</AlertTitle>
             <AlertDescription>
               <p>Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
-              <p>Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
+              <p className="mb-4">Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
+              <Button asChild size="sm">
+                <a href={officialLink} target="_blank" rel="noopener noreferrer">
+                  Visit Official Store
+                  <ExternalLink className="ml-2" />
+                </a>
+              </Button>
             </AlertDescription>
           </Alert>
         );
@@ -87,7 +114,13 @@ export function Authenticator() {
           <Alert variant="destructive">
             <AlertTitle>⚠️ Không thuộc hệ thống MAISON</AlertTitle>
             <AlertDescription>
-              Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.
+              <p className="mb-4">Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
+               <Button asChild variant="outline" size="sm">
+                <a href={reportHref}>
+                  Report This Site
+                  <ShieldAlert className="ml-2" />
+                </a>
+              </Button>
             </AlertDescription>
           </Alert>
         );
@@ -96,10 +129,14 @@ export function Authenticator() {
           <Alert variant="destructive">
             <AlertTitle>🛑 Có thể giả mạo</AlertTitle>
             <AlertDescription>
-              <div>
                 <p>Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
-                <p>Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
-              </div>
+                <p className="mb-4">Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
+                 <Button asChild variant="outline" size="sm">
+                    <a href={reportHref}>
+                      Report This Site
+                      <ShieldAlert className="ml-2" />
+                    </a>
+                </Button>
             </AlertDescription>
           </Alert>
         );
@@ -120,6 +157,8 @@ export function Authenticator() {
 
   return (
     <div className="w-full space-y-6 rounded-lg border bg-card p-6 shadow-sm">
+      {showConfetti && <ReactConfetti width={windowSize.width} height={windowSize.height} recycle={false} onConfettiComplete={() => setShowConfetti(false)} className="!fixed z-50" />}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -168,7 +207,7 @@ export function Authenticator() {
         </div>
       </div>
       
-      <div className="min-h-[96px] pt-2">
+      <div className="min-h-[148px] pt-2">
         {renderResult()}
       </div>
     </div>
