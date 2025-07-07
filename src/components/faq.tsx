@@ -35,7 +35,7 @@ export function Faq({ align = 'center' }: { align?: 'center' | 'left' | 'right' 
       <Accordion type="single" collapsible className="w-full">
         {faqItems.map((item, index) => (
           <AccordionItem value={`item-${index}`} key={index}>
-            <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
+            <AccordionTrigger>{item.question}</AccordionTrigger>
             <AccordionContent>
               {item.answer}
             </AccordionContent>
