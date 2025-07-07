@@ -22,23 +22,33 @@ const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' 
     official: {
       Icon: CheckCircle2,
       color: 'text-green-600',
+      bgColor: 'bg-green-50',
+      borderColor: 'border-green-200'
     },
     suspicious: {
       Icon: Info,
-      color: 'text-[#BFA181]',
+      color: 'text-amber-600',
+      bgColor: 'bg-amber-50',
+      borderColor: 'border-amber-200'
     },
     unofficial: {
       Icon: XCircle,
       color: 'text-red-600',
+      bgColor: 'bg-red-50',
+      borderColor: 'border-red-200'
     },
   };
 
-  const { Icon, color } = statusConfig[status];
+  const { Icon, color, bgColor, borderColor } = statusConfig[status];
 
   return (
     <button
       onClick={onClick}
-      className="group text-left p-2 flex items-center gap-2.5 bg-background rounded-md border shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-in-out"
+      className={cn(
+        "group text-left p-2 flex items-center gap-2.5 rounded-md border shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-in-out",
+        bgColor,
+        borderColor
+      )}
     >
       <Icon className={cn("h-5 w-5 shrink-0", color)} />
       <span className="text-sm text-foreground truncate">{url}</span>
@@ -69,11 +79,9 @@ export function Authenticator({
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     };
 
-    if (typeof window !== 'undefined') {
-      handleResize();
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
 
@@ -190,6 +198,15 @@ export function Authenticator({
     <div className={cn("w-full space-y-6 rounded-lg border bg-card p-6 shadow-sm", containerClassName)}>
       {showConfetti && <ReactConfetti width={windowSize.width} height={windowSize.height} recycle={false} onConfettiComplete={() => setShowConfetti(false)} className="!fixed z-50" />}
 
+      <div className="space-y-3">
+        <p className="text-center text-sm text-muted-foreground">Hoặc thử với ví dụ:</p>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {exampleLinks.map(ex => (
+            <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
+          ))}
+        </div>
+      </div>
+      
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="relative">
           {!hideSearchIcon && <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />}
@@ -235,15 +252,6 @@ export function Authenticator({
           Kiểm tra
         </Button>
       </form>
-
-      <div className="space-y-3 pt-2">
-        <p className="text-center text-sm text-muted-foreground">Hoặc thử với ví dụ:</p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
-          {exampleLinks.map(ex => (
-            <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
-          ))}
-        </div>
-      </div>
       
       <div className="min-h-[148px] pt-2">
         {renderResult()}
