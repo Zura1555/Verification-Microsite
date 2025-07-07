@@ -60,7 +60,7 @@ export function Faq() {
             <h3 className="font-headline text-2xl font-bold mb-3 text-foreground">
               An Tâm Tuyệt Đối
             </h3>
-            <p className="max-w-xs text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-6">
               Khi mọi thắc mắc đã được giải đáp, hãy tự tin khám phá bộ sưu tập chính hãng từ Maison.
             </p>
           <Button size="lg" className="w-full">Bắt Đầu Mua Sắm</Button>
