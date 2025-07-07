@@ -48,8 +48,8 @@ export default function V3Page() {
             <Image
               src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2023/04/MicrosoftTeams-image.png?fit=2560%2C1062&ssl=1"
               alt="Maison Logo Background"
-              width={600}
-              height={600}
+              width={800}
+              height={800}
               className="opacity-5 object-contain"
             />
           </div>
