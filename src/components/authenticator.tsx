@@ -213,8 +213,8 @@ export function Authenticator({
         </div>
       </div>
       
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="relative">
+      <form onSubmit={handleSubmit} className="flex items-center space-x-4">
+        <div className="relative flex-grow">
           {!hideSearchIcon && <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />}
           <Input
             type="text"
@@ -248,7 +248,7 @@ export function Authenticator({
         </div>
         <Button
           type="submit"
-          className="w-full h-12 text-base font-semibold"
+          className="h-12 text-base font-semibold shrink-0"
           disabled={status === 'loading'}
           variant={buttonVariant}
         >
