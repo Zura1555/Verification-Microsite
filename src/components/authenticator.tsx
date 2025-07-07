@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -28,32 +29,30 @@ export function Authenticator() {
         const officialHandles = ["mlb.kr.vn"];
 
         let cleanInput = value.toLowerCase().trim();
-        const isSocialInput = cleanInput.startsWith('@');
         
         cleanInput = cleanInput.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '').replace(/^@/, '');
         
-        const inputParts = cleanInput.split('/');
-        const inputDomain = inputParts[0];
+        const domainOrHandle = cleanInput.split('/')[0];
 
         // Official Check
-        if (officialDomains.includes(inputDomain)) {
+        if (officialDomains.includes(domainOrHandle)) {
             setStatus("official");
             return;
         }
-        if (officialHandles.some(h => cleanInput.endsWith(h))) {
+        if (officialHandles.includes(cleanInput)) {
              setStatus("official");
              return;
         }
 
         // Suspicious Check
-        if (inputDomain.includes('maisononline.vn')) {
+        if (domainOrHandle.includes('maisononline.vn')) {
             setStatus("suspicious");
             return;
         }
 
-        if (isSocialInput && cleanInput.includes('mlb') && cleanInput.includes('vietnam')) {
-             setStatus("suspicious");
-             return;
+        if (cleanInput.includes('mlbvietnamofficial')) {
+            setStatus("suspicious");
+            return;
         }
 
         // Unofficial Check for everything else
@@ -67,6 +66,7 @@ export function Authenticator() {
   };
   
   const handleExampleClick = (url: string) => {
+    setInput(url);
     handleVerify(url);
   }
 
@@ -75,27 +75,31 @@ export function Authenticator() {
       case "official":
         return (
           <Alert>
-            <AlertTitle>✅ Kênh chính hãng!</AlertTitle>
+            <AlertTitle>✅ Chính hãng</AlertTitle>
             <AlertDescription>
-              Đây là một kênh bán hàng chính thức của MAISON. Bạn có thể yên tâm mua sắm.
+              <p>Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
+              <p>Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
             </AlertDescription>
           </Alert>
         );
       case "suspicious":
         return (
           <Alert variant="destructive">
-            <AlertTitle>⚠️ Kênh có dấu hiệu đáng ngờ</AlertTitle>
+            <AlertTitle>⚠️ Không thuộc hệ thống MAISON</AlertTitle>
             <AlertDescription>
-              Kênh này không nằm trong danh sách chính thức và có dấu hiệu đáng ngờ. Vui lòng cẩn trọng.
+              Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.
             </AlertDescription>
           </Alert>
         );
       case "unofficial":
         return (
           <Alert variant="destructive">
-            <AlertTitle>❌ Không phải kênh chính hãng</AlertTitle>
+            <AlertTitle>🛑 Có thể giả mạo</AlertTitle>
             <AlertDescription>
-              Kênh này không nằm trong danh sách chính thức của MAISON. Vui lòng cẩn trọng.
+              <div>
+                <p>Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
+                <p>Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
+              </div>
             </AlertDescription>
           </Alert>
         );
@@ -143,19 +147,28 @@ export function Authenticator() {
       <div className="space-y-3">
         <p className="text-sm text-center text-muted-foreground">Hoặc thử với ví dụ:</p>
         <div className="flex flex-wrap items-center justify-center gap-2">
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('www.maisononline.vn')}>
-                ✅ www.maisononline.vn
+            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('www.maisononline.vn/collections/pedro')}>
+                ✅ www.maisononline.vn/collections/pedro
+            </Badge>
+            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('@mlb.kr.vn')}>
+                ✅ @mlb.kr.vn
             </Badge>
             <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('maisonline.vn.co')}>
                 ⚠️ maisonline.vn.co
             </Badge>
+            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('@mlbvietnamofficial')}>
+                ⚠️ @mlbvietnamofficial
+            </Badge>
             <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('fakecharleskeith.vn')}>
-                ❌ fakecharleskeith.vn
+                🛑 fakecharleskeith.vn
+            </Badge>
+            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('mlb-vietnam.shop')}>
+                🛑 mlb-vietnam.shop
             </Badge>
         </div>
       </div>
       
-      <div className="min-h-[76px] pt-2">
+      <div className="min-h-[96px] pt-2">
         {renderResult()}
       </div>
     </div>
