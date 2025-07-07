@@ -39,7 +39,7 @@ export function Faq() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         {/* Left Column: FAQs */}
         <div>
-          <h3 className="text-xl font-bold mb-4 text-left">
+          <h3 className="text-xl font-semibold mb-4 text-left">
             Các câu hỏi thường gặp
           </h3>
           <Accordion type="single" collapsible className="w-full">
@@ -57,7 +57,7 @@ export function Faq() {
         {/* Right Column: Call to Action */}
         <div className="flex flex-col items-center justify-center text-center p-8 rounded-lg">
             <ShoppingBag className="h-16 w-16 text-primary mb-6" />
-            <h3 className="text-2xl font-bold mb-3 text-foreground">
+            <h3 className="text-2xl font-semibold mb-3 text-foreground">
               An Tâm Tuyệt Đối
             </h3>
             <p className="text-muted-foreground mb-6">
