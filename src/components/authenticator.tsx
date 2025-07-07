@@ -6,11 +6,53 @@ import ReactConfetti from 'react-confetti';
 import { Input } from "@/components/ui/input";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert } from "lucide-react";
+import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, AlertCircle, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious";
+
+const exampleLinks = {
+  official: [
+    { url: 'www.maisononline.vn/collections/pedro', status: 'official' as const },
+    { url: '@mlb.kr.vn', status: 'official' as const },
+  ],
+  unofficial: [
+    { url: 'maisonline.vn.co', status: 'suspicious' as const },
+    { url: '@mlbvietnamofficial', status: 'suspicious' as const },
+    { url: 'fakecharleskeith.vn', status: 'unofficial' as const },
+    { url: 'mlb-vietnam.shop', status: 'unofficial' as const },
+  ],
+};
+
+const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' | 'suspicious' | 'unofficial'; onClick: () => void }) => {
+  const statusConfig = {
+    official: {
+      Icon: CheckCircle2,
+      color: 'text-green-600',
+    },
+    suspicious: {
+      Icon: AlertCircle,
+      color: 'text-[#BFA181]',
+    },
+    unofficial: {
+      Icon: XCircle,
+      color: 'text-red-600',
+    },
+  };
+
+  const { Icon, color } = statusConfig[status];
+
+  return (
+    <button
+      onClick={onClick}
+      className="group w-full text-left p-2 flex items-center gap-2.5 bg-background rounded-md border shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-in-out"
+    >
+      <Icon className={cn("h-5 w-5 shrink-0", color)} />
+      <span className="text-sm text-foreground truncate">{url}</span>
+    </button>
+  );
+};
+
 
 export function Authenticator({
   containerClassName,
@@ -63,20 +105,17 @@ export function Authenticator({
         
         const domainOrHandle = cleanInput.split('/')[0];
 
-        // Official Check
         if (officialDomains.includes(domainOrHandle) || officialHandles.includes(cleanInput)) {
             setStatus("official");
             setShowConfetti(true);
             return;
         }
 
-        // Suspicious Check
         if (domainOrHandle.includes('maisononline.vn') || cleanInput.includes('mlbvietnamofficial')) {
             setStatus("suspicious");
             return;
         }
 
-        // Unofficial Check for everything else
         setStatus("unofficial");
     }, 1500);
   };
@@ -160,8 +199,9 @@ export function Authenticator({
             type="text"
             placeholder="nhập website, facebook, tiktok, instagram..."
             className={cn(
-              "h-12 text-base",
+              "h-12 text-base focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#BFA181]",
               !hideSearchIcon && "pl-10",
+              input.length > 0 && "pr-10",
               inputClassName
             )}
             value={input}
@@ -172,6 +212,18 @@ export function Authenticator({
             disabled={status === 'loading'}
             aria-label="URL to verify"
           />
+          {input.length > 0 && (
+             <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full text-muted-foreground hover:bg-accent"
+              onClick={() => setInput('')}
+              aria-label="Clear input"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          )}
         </div>
         <Button
           type="submit"
@@ -186,27 +238,22 @@ export function Authenticator({
         </Button>
       </form>
 
-      <div className="space-y-3">
-        <p className="text-sm text-center text-muted-foreground">Hoặc thử với ví dụ:</p>
-        <div className="flex flex-wrap items-center justify-center gap-2">
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('www.maisononline.vn/collections/pedro')}>
-                ✅ www.maisononline.vn/collections/pedro
-            </Badge>
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('@mlb.kr.vn')}>
-                ✅ @mlb.kr.vn
-            </Badge>
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('maisonline.vn.co')}>
-                ⚠️ maisonline.vn.co
-            </Badge>
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('@mlbvietnamofficial')}>
-                ⚠️ @mlbvietnamofficial
-            </Badge>
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('fakecharleskeith.vn')}>
-                🛑 fakecharleskeith.vn
-            </Badge>
-            <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('mlb-vietnam.shop')}>
-                🛑 mlb-vietnam.shop
-            </Badge>
+      <div className="space-y-4 pt-2">
+        <div>
+          <h4 className="mb-2 text-sm font-medium text-muted-foreground">Ví dụ kênh chính hãng</h4>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {exampleLinks.official.map(ex => (
+              <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
+            ))}
+          </div>
+        </div>
+        <div>
+          <h4 className="mb-2 text-sm font-medium text-muted-foreground">Ví dụ kênh không chính hãng</h4>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {exampleLinks.unofficial.map(ex => (
+              <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
+            ))}
+          </div>
         </div>
       </div>
       
