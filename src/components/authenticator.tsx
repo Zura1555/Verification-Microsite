@@ -219,7 +219,7 @@ export function Authenticator({
             type="text"
             placeholder="nhập website, facebook, tiktok, instagram..."
             className={cn(
-              "h-12 text-base focus-visible:ring-[1.5px] focus-visible:ring-offset-2 focus-visible:ring-black",
+              "h-12 text-base focus-visible:ring-[1.5px] focus-visible:ring-offset-2 focus-visible:ring-ring",
               !hideSearchIcon && "pl-10",
               input.length > 0 && "pr-10",
               inputClassName
