@@ -44,7 +44,7 @@ export function Faq() {
         </div>
 
         {/* Right Column: Call to Action */}
-        <div className="flex flex-col items-center justify-center text-center bg-card p-8 rounded-lg shadow-sm">
+        <div className="flex flex-col items-center justify-center text-center p-8 rounded-lg">
             <ShoppingBag className="h-16 w-16 text-primary mb-6" />
             <h3 className="font-headline text-2xl font-bold mb-3 text-foreground">
               Done verification. Shopping time
