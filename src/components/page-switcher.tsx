@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -20,7 +19,6 @@ export function PageSwitcher() {
     { name: 'Version 1', href: '/' },
     { name: 'Version 2', href: '/v2' },
     { name: 'Version 3', href: '/v3' },
-    { name: 'Version 4', href: '/v4' },
   ];
 
   return (
