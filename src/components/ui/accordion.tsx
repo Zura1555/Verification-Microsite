@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { Plus, Minus } from "lucide-react"
+import { Plus, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -28,19 +28,16 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "group flex w-full flex-1 items-center justify-between p-4 font-medium text-foreground transition-colors hover:bg-accent/50",
+        "group flex w-full flex-1 items-center p-4 font-medium text-foreground transition-colors hover:bg-accent/50",
         className
       )}
       {...props}
     >
-      <div className="flex items-center gap-4">
-          <Plus className="h-5 w-5 shrink-0 text-primary/80" />
-          <span className="text-left text-base">{children}</span>
-      </div>
-      <div className="relative flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-        <Plus className="h-4 w-4 transform transition-transform duration-300 group-data-[state=open]:rotate-90 group-data-[state=open]:scale-0" />
-        <Minus className="absolute h-4 w-4 transform transition-transform duration-300 group-data-[state=open]:rotate-0 group-data-[state=open]:scale-100 scale-0" />
-      </div>
+        <div className="relative h-5 w-5 shrink-0 mr-4">
+            <Plus className="h-full w-full text-primary/80 transition-all duration-300 group-data-[state=open]:rotate-90 group-data-[state=open]:scale-0" />
+            <X className="absolute inset-0 h-full w-full text-primary/80 scale-0 transition-all duration-300 group-data-[state=open]:rotate-0 group-data-[state=open]:scale-100" />
+        </div>
+        <span className="flex-1 text-left text-base">{children}</span>
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))

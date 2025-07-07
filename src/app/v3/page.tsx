@@ -42,7 +42,7 @@ export default function V3Page() {
             </div>
           </div>
         </div>
-        <Faq align="left" />
+        <Faq />
       </main>
       <SiteFooter />
     </div>
