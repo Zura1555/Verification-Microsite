@@ -23,14 +23,14 @@ export default function V3Page() {
           {/* Content Grid */}
           <div className="relative z-10 grid grid-cols-1 items-center md:grid-cols-5 md:gap-12">
             {/* Left Column: Info */}
-            <div className="flex-col justify-center space-y-4 pb-8 text-left md:col-span-2 md:pb-0">
-              <h2 className="font-headline text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            <div className="flex-col justify-center space-y-6 pb-8 text-left md:col-span-2 md:pb-0">
+              <h2 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                 Xác minh kênh mua hàng chính hãng
               </h2>
-              <p className="text-muted-foreground">
+              <p className="leading-relaxed text-foreground/80">
                 Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.
               </p>
-              <p className="text-muted-foreground">
+              <p className="leading-relaxed text-foreground/80">
                 MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.
               </p>
             </div>
