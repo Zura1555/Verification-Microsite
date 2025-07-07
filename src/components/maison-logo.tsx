@@ -11,11 +11,10 @@ export function MaisonLogo({ className, ...props }: React.HTMLAttributes<HTMLDiv
       {...props}
     >
       <Image
-        src="https://placehold.co/100x100.png"
+        src="https://mdm.maisonrmi.com/assets/858c71b3-5aff-4c3f-b485-a07a9953097c?key=system-small-cover"
         alt="Maison Logo"
         fill
         className="object-cover"
-        data-ai-hint="logo"
       />
     </div>
   );

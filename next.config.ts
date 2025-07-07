@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: 'online.gov.vn',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'mdm.maisonrmi.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
