@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Search, CheckCircle2, ShieldX, AlertTriangle, ShieldCheck } from "lucide-react";
+import { Loader2, Search, AlertTriangle } from "lucide-react";
 
 type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious";
 
@@ -75,8 +75,7 @@ export function Authenticator() {
       case "official":
         return (
           <Alert>
-            <ShieldCheck className="h-4 w-4" />
-            <AlertTitle>Kênh chính hãng!</AlertTitle>
+            <AlertTitle>✅ Kênh chính hãng!</AlertTitle>
             <AlertDescription>
               Đây là một kênh bán hàng chính thức của MAISON. Bạn có thể yên tâm mua sắm.
             </AlertDescription>
@@ -85,8 +84,7 @@ export function Authenticator() {
       case "suspicious":
         return (
           <Alert variant="destructive">
-            <AlertTriangle className="h-4 w-4" />
-            <AlertTitle>Kênh có dấu hiệu đáng ngờ</AlertTitle>
+            <AlertTitle>⚠️ Kênh có dấu hiệu đáng ngờ</AlertTitle>
             <AlertDescription>
               Kênh này không nằm trong danh sách chính thức và có dấu hiệu đáng ngờ. Vui lòng cẩn trọng.
             </AlertDescription>
@@ -95,8 +93,7 @@ export function Authenticator() {
       case "unofficial":
         return (
           <Alert variant="destructive">
-            <ShieldX className="h-4 w-4" />
-            <AlertTitle>Không phải kênh chính hãng</AlertTitle>
+            <AlertTitle>❌ Không phải kênh chính hãng</AlertTitle>
             <AlertDescription>
               Kênh này không nằm trong danh sách chính thức của MAISON. Vui lòng cẩn trọng.
             </AlertDescription>
@@ -147,16 +144,13 @@ export function Authenticator() {
         <p className="text-sm text-center text-muted-foreground">Hoặc thử với ví dụ:</p>
         <div className="flex flex-wrap items-center justify-center gap-2">
             <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('www.maisononline.vn')}>
-                <CheckCircle2 className="mr-1.5 h-3.5 w-3.5" />
-                www.maisononline.vn
+                ✅ www.maisononline.vn
             </Badge>
             <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('maisonline.vn.co')}>
-                <AlertTriangle className="mr-1.5 h-3.5 w-3.5" />
-                maisonline.vn.co
+                ⚠️ maisonline.vn.co
             </Badge>
             <Badge variant="secondary" className="cursor-pointer py-1.5 px-3 hover:bg-accent" onClick={() => handleExampleClick('fakecharleskeith.vn')}>
-                <ShieldX className="mr-1.5 h-3.5 w-3.5" />
-                fakecharleskeith.vn
+                ❌ fakecharleskeith.vn
             </Badge>
         </div>
       </div>
