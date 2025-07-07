@@ -2,6 +2,8 @@ import { Authenticator } from '@/components/authenticator';
 import { Faq } from '@/components/faq';
 import { MaisonLogo } from '@/components/maison-logo';
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarContent, SidebarInset } from '@/components/ui/sidebar';
+import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function V3Page() {
   return (
@@ -29,19 +31,23 @@ export default function V3Page() {
           </SidebarContent>
         </Sidebar>
         <SidebarInset>
-            <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
-              {/* Mobile header */}
-              <header className="md:hidden flex flex-col items-center space-y-4 text-center mb-8">
-                <MaisonLogo className="h-16 w-16" />
-                <h1 className="font-headline text-3xl font-bold tracking-tighter text-primary sm:text-4xl">
-                    MAISON RETAIL
-                </h1>
-              </header>
-              <div className="w-full max-w-2xl space-y-8">
-                <Authenticator />
-                <Faq />
-              </div>
-            </main>
+            <div className="flex flex-col w-full min-h-screen">
+              <SiteHeader />
+              <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+                {/* Mobile header */}
+                <header className="md:hidden flex flex-col items-center space-y-4 text-center mb-8">
+                  <MaisonLogo className="h-16 w-16" />
+                  <h1 className="font-headline text-3xl font-bold tracking-tighter text-primary sm:text-4xl">
+                      MAISON RETAIL
+                  </h1>
+                </header>
+                <div className="w-full max-w-2xl space-y-8">
+                  <Authenticator />
+                  <Faq />
+                </div>
+              </main>
+              <SiteFooter />
+            </div>
         </SidebarInset>
       </div>
     </SidebarProvider>
