@@ -15,7 +15,18 @@ export function Faq() {
     },
     {
       question: "Làm sao để nhận biết kênh không chính hãng?",
-      answer: "Các dấu hiệu thường gặp của kênh không chính hãng bao gồm: tên miền sai chính tả, mức giá bất thường, thiếu thông tin liên hệ rõ ràng, không có chính sách đổi trả và hình ảnh không đồng nhất với thương hiệu.",
+      answer: (
+        <>
+          <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
+          <ul className="list-disc space-y-1 pl-4">
+            <li>Tên miền sai chính tả</li>
+            <li>Mức giá bất thường</li>
+            <li>Thiếu thông tin liên hệ rõ ràng</li>
+            <li>Không có chính sách đổi trả</li>
+            <li>Hình ảnh không đồng nhất với thương hiệu</li>
+          </ul>
+        </>
+      ),
     },
     {
       question: "Tôi có thể báo cáo kênh giả mạo ở đâu?",
