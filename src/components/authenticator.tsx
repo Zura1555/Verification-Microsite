@@ -4,14 +4,25 @@
 import { useState, useEffect } from "react";
 import ReactConfetti from 'react-confetti';
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Button, type ButtonProps } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious";
 
-export function Authenticator() {
+export function Authenticator({
+  containerClassName,
+  inputClassName,
+  buttonVariant = 'default',
+  hideSearchIcon = false,
+}: {
+  containerClassName?: string;
+  inputClassName?: string;
+  buttonVariant?: ButtonProps["variant"];
+  hideSearchIcon?: boolean;
+}) {
   const [input, setInput] = useState("");
   const [verifiedUrl, setVerifiedUrl] = useState("");
   const [status, setStatus] = useState<VerificationStatus>("idle");
@@ -139,16 +150,20 @@ export function Authenticator() {
   };
 
   return (
-    <div className="w-full space-y-6 rounded-lg border bg-card p-6 shadow-sm">
+    <div className={cn("w-full space-y-6 rounded-lg border bg-card p-6 shadow-sm", containerClassName)}>
       {showConfetti && <ReactConfetti width={windowSize.width} height={windowSize.height} recycle={false} onConfettiComplete={() => setShowConfetti(false)} className="!fixed z-50" />}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          {!hideSearchIcon && <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />}
           <Input
             type="text"
             placeholder="nhập website, facebook, tiktok, instagram..."
-            className="pl-10 h-12 text-base"
+            className={cn(
+              "h-12 text-base",
+              !hideSearchIcon && "pl-10",
+              inputClassName
+            )}
             value={input}
             onChange={(e) => {
                 setInput(e.target.value);
@@ -158,7 +173,12 @@ export function Authenticator() {
             aria-label="URL to verify"
           />
         </div>
-        <Button type="submit" className="w-full h-12 text-base font-semibold" disabled={status === 'loading'}>
+        <Button
+          type="submit"
+          className="w-full h-12 text-base font-semibold"
+          disabled={status === 'loading'}
+          variant={buttonVariant}
+        >
           {status === 'loading' ? (
             <Loader2 className="mr-2 h-5 w-5 animate-spin" />
           ) : null}
