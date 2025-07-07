@@ -81,17 +81,6 @@ export function Authenticator() {
   }
 
   const renderResult = () => {
-    const reportHref = `mailto:support@maison.vn?subject=Báo cáo trang web giả mạo&body=Tôi muốn báo cáo trang web sau đây là đáng ngờ: ${encodeURIComponent(verifiedUrl)}`;
-    
-    let officialLink = verifiedUrl;
-    if (verifiedUrl) {
-      if (verifiedUrl.startsWith('@')) {
-        officialLink = `https://www.facebook.com/${verifiedUrl.substring(1)}`;
-      } else if (!verifiedUrl.match(/^https?:\/\//)) {
-        officialLink = `https://${verifiedUrl}`;
-      }
-    }
-
     switch (status) {
       case "official":
         return (
@@ -100,11 +89,9 @@ export function Authenticator() {
             <AlertDescription>
               <p>Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
               <p className="mb-4">Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
-              <Button asChild size="sm">
-                <a href={officialLink} target="_blank" rel="noopener noreferrer">
-                  Visit Official Store
-                  <ExternalLink className="ml-2" />
-                </a>
+              <Button size="sm">
+                Visit Official Store
+                <ExternalLink className="ml-2" />
               </Button>
             </AlertDescription>
           </Alert>
@@ -115,12 +102,10 @@ export function Authenticator() {
             <AlertTitle>⚠️ Không thuộc hệ thống MAISON</AlertTitle>
             <AlertDescription>
               <p className="mb-4">Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
-               <Button asChild variant="outline" size="sm">
-                <a href={reportHref}>
+               <Button variant="outline" size="sm">
                   Report This Site
                   <ShieldAlert className="ml-2" />
-                </a>
-              </Button>
+                </Button>
             </AlertDescription>
           </Alert>
         );
@@ -131,11 +116,9 @@ export function Authenticator() {
             <AlertDescription>
                 <p>Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
                 <p className="mb-4">Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
-                 <Button asChild variant="outline" size="sm">
-                    <a href={reportHref}>
-                      Report This Site
-                      <ShieldAlert className="ml-2" />
-                    </a>
+                 <Button variant="outline" size="sm">
+                    Report This Site
+                    <ShieldAlert className="ml-2" />
                 </Button>
             </AlertDescription>
           </Alert>
