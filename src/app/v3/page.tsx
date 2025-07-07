@@ -2,13 +2,14 @@ import { Authenticator } from '@/components/authenticator';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import Image from 'next/image';
+import { Faq } from '@/components/faq';
 
 export default function V3Page() {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <SiteHeader />
-      <main className="flex flex-1 items-center justify-center p-4 sm:p-6 md:p-8">
-        <div className="relative w-full max-w-5xl overflow-hidden rounded-lg border bg-card/80 p-8 shadow-lg backdrop-blur-sm">
+      <main className="w-full max-w-5xl mx-auto flex-1 px-4 py-12 sm:px-6 lg:px-8 space-y-12">
+        <div className="relative w-full overflow-hidden rounded-lg border bg-card/80 p-8 shadow-lg backdrop-blur-sm">
           {/* Background Logo */}
           <div className="absolute inset-0 z-0 flex items-center justify-center">
             <Image
@@ -41,6 +42,7 @@ export default function V3Page() {
             </div>
           </div>
         </div>
+        <Faq align="left" />
       </main>
       <SiteFooter />
     </div>

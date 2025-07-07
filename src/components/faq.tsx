@@ -4,8 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
-export function Faq() {
+export function Faq({ align = 'center' }: { align?: 'center' | 'left' | 'right' }) {
   const faqItems = [
     {
       question: "Tại sao cần xác minh kênh mua hàng?",
@@ -23,7 +24,14 @@ export function Faq() {
 
   return (
     <section className="w-full pt-8">
-      <h3 className="font-headline text-xl font-bold mb-4 text-center">Các câu hỏi thường gặp</h3>
+      <h3 className={cn(
+        "font-headline text-xl font-bold mb-4",
+        {
+          'text-center': align === 'center',
+          'text-left': align === 'left',
+          'text-right': align === 'right'
+        }
+      )}>Các câu hỏi thường gặp</h3>
       <Accordion type="single" collapsible className="w-full">
         {faqItems.map((item, index) => (
           <AccordionItem value={`item-${index}`} key={index}>
