@@ -6,23 +6,16 @@ import ReactConfetti from 'react-confetti';
 import { Input } from "@/components/ui/input";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, AlertCircle, XCircle } from "lucide-react";
+import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, XCircle, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious";
 
-const exampleLinks = {
-  official: [
-    { url: 'www.maisononline.vn/collections/pedro', status: 'official' as const },
-    { url: '@mlb.kr.vn', status: 'official' as const },
-  ],
-  unofficial: [
-    { url: 'maisonline.vn.co', status: 'suspicious' as const },
-    { url: '@mlbvietnamofficial', status: 'suspicious' as const },
-    { url: 'fakecharleskeith.vn', status: 'unofficial' as const },
-    { url: 'mlb-vietnam.shop', status: 'unofficial' as const },
-  ],
-};
+const exampleLinks = [
+  { url: 'www.maisononline.vn', status: 'official' as const },
+  { url: 'a-reseller-marketplace.com', status: 'suspicious' as const },
+  { url: 'maison-outlet.store', status: 'unofficial' as const },
+];
 
 const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' | 'suspicious' | 'unofficial'; onClick: () => void }) => {
   const statusConfig = {
@@ -31,7 +24,7 @@ const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' 
       color: 'text-green-600',
     },
     suspicious: {
-      Icon: AlertCircle,
+      Icon: Info,
       color: 'text-[#BFA181]',
     },
     unofficial: {
@@ -45,7 +38,7 @@ const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' 
   return (
     <button
       onClick={onClick}
-      className="group w-full text-left p-2 flex items-center gap-2.5 bg-background rounded-md border shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-in-out"
+      className="group text-left p-2 flex items-center gap-2.5 bg-background rounded-md border shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-in-out"
     >
       <Icon className={cn("h-5 w-5 shrink-0", color)} />
       <span className="text-sm text-foreground truncate">{url}</span>
@@ -111,8 +104,13 @@ export function Authenticator({
             return;
         }
 
-        if (domainOrHandle.includes('maisononline.vn') || cleanInput.includes('mlbvietnamofficial')) {
+        if (domainOrHandle === 'a-reseller-marketplace.com' || (domainOrHandle.includes('maisononline.vn') && !officialDomains.includes(domainOrHandle)) || cleanInput.includes('mlbvietnamofficial')) {
             setStatus("suspicious");
+            return;
+        }
+        
+        if (domainOrHandle === 'maison-outlet.store') {
+            setStatus("unofficial");
             return;
         }
 
@@ -238,22 +236,12 @@ export function Authenticator({
         </Button>
       </form>
 
-      <div className="space-y-4 pt-2">
-        <div>
-          <h4 className="mb-2 text-sm font-medium text-muted-foreground">Ví dụ kênh chính hãng</h4>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {exampleLinks.official.map(ex => (
-              <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
-            ))}
-          </div>
-        </div>
-        <div>
-          <h4 className="mb-2 text-sm font-medium text-muted-foreground">Ví dụ kênh không chính hãng</h4>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {exampleLinks.unofficial.map(ex => (
-              <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
-            ))}
-          </div>
+      <div className="space-y-3 pt-2">
+        <p className="text-center text-sm text-muted-foreground">Hoặc thử với ví dụ:</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
+          {exampleLinks.map(ex => (
+            <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
+          ))}
         </div>
       </div>
       
