@@ -153,13 +153,14 @@ export function Authenticator({
       case "official":
         return (
           <Alert>
-            <AlertTitle>✅ Chính hãng</AlertTitle>
+            <CheckCircle2 className="h-4 w-4" />
+            <AlertTitle>Chính hãng</AlertTitle>
             <AlertDescription>
-              <p>Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
+              <p className="mb-2">Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
               <p className="mb-4">Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
               <Button size="sm">
                 Visit Official Store
-                <ExternalLink className="ml-2" />
+                <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </AlertDescription>
           </Alert>
@@ -186,7 +187,7 @@ export function Authenticator({
               <p className="mb-4">Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
                <Button variant="outline" size="sm">
                   Báo cáo kênh nghi ngờ
-                  <ShieldAlert className="ml-2" />
+                  <ShieldAlert className="ml-2 h-4 w-4" />
                 </Button>
             </AlertDescription>
           </Alert>
@@ -194,10 +195,11 @@ export function Authenticator({
       case "unofficial":
         return (
           <Alert variant="destructive">
-            <AlertTitle>🛑 Có thể giả mạo</AlertTitle>
+            <XCircle className="h-4 w-4" />
+            <AlertTitle>Có thể giả mạo</AlertTitle>
             <AlertDescription>
-                <p>Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
-                <p className="mb-4">Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
+                <p className="mb-2">Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
+                <p>Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
             </AlertDescription>
           </Alert>
         );
