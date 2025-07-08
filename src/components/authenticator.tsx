@@ -27,7 +27,7 @@ const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' 
       borderColor: 'border-green-200'
     },
     suspicious: {
-      Icon: Info,
+      Icon: AlertTriangle,
       color: 'text-amber-600',
       bgColor: 'bg-amber-50',
       borderColor: 'border-amber-200'
@@ -180,7 +180,7 @@ export function Authenticator({
       case "suspicious":
         return (
           <Alert variant="warning">
-            <Info className="h-4 w-4" />
+            <AlertTriangle className="h-4 w-4" />
             <AlertTitle>Không thuộc hệ thống MAISON</AlertTitle>
             <AlertDescription>
               <p className="mb-4">Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
