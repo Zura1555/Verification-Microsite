@@ -186,13 +186,17 @@ export function Authenticator({
         ];
         return (
           <Alert>
-            <CheckCircle2 className="h-4 w-4" />
-            <AlertTitle>Kênh chính thức của MLB</AlertTitle>
-            <AlertDescription>
-              <p className="mb-4 text-center">
-                Nhấp vào biểu tượng để truy cập các kênh chính thức của thương hiệu MLB do MAISON phân phối.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3 pt-2">
+            <AlertTitle className="flex items-center justify-center gap-2">
+              <CheckCircle2 className="h-5 w-5" />
+              Kênh chính thức của MLB
+            </AlertTitle>
+            <AlertDescription className="pt-4 text-center space-y-4">
+              <div className="flex justify-center">
+                 <div className="flex h-16 w-40 items-center justify-center rounded-lg bg-muted text-sm text-muted-foreground">
+                    Brand Logo
+                 </div>
+              </div>
+              <div className="flex flex-wrap justify-center gap-3">
                 {officialChannels.map(({ name, Icon, href }) => (
                   <a
                     key={name}
