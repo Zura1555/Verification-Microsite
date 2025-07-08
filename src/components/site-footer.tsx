@@ -46,7 +46,7 @@ const FooterLinkColumn = ({ title, links }: { title: string; links: { text: stri
 
 export function SiteFooter({ className }: { className?: string }) {
     return (
-        <footer className={cn("w-full bg-gray-900 text-white", className)}>
+        <footer className={cn("w-full bg-[rgb(51,51,51)] text-white", className)}>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 gap-x-8">
                     <div className="lg:col-span-7">
