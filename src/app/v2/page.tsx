@@ -32,11 +32,11 @@ export default function V2Page() {
           {/* Second Grid: Image holder */}
           <div className="hidden lg:block lg:w-1/2 relative">
             <Image
-              src="https://placehold.co/1000x1200.png"
-              alt="Fashion models"
+              src="https://upload.wikimedia.org/wikipedia/commons/6/62/HK_TST_night_Nathan_Road_Park_Lane_Shopper%27s_Boulevard_Sept-2012_FILA_shop.JPG"
+              alt="FILA store at night"
               fill
               className="object-cover"
-              data-ai-hint="fashion models"
+              data-ai-hint="storefront night"
             />
             <div className="absolute inset-0 bg-black/30" />
           </div>
