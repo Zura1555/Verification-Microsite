@@ -180,7 +180,7 @@ export function Authenticator({
             <AlertTitle>Kênh chính thức của MLB</AlertTitle>
             <AlertDescription>
               <p className="mb-4">Dưới đây là danh sách các kênh chính thức của thương hiệu MLB được phân phối bởi MAISON:</p>
-              <ul className="space-y-3">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                 <li className="flex items-start gap-3">
                   <Globe className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
                   <div>
