@@ -53,7 +53,7 @@ export function PageV3() {
           </div>
 
           {/* Content Grid */}
-          <div className="relative z-10 grid grid-cols-1 items-center md:grid-cols-5 md:gap-12">
+          <div className="relative z-10 grid grid-cols-1 items-start md:grid-cols-5 md:gap-12">
             {/* Left Column: Info */}
             <div className="flex-col justify-center space-y-6 pb-8 text-left md:col-span-2 md:pb-0">
               <h2 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
