@@ -12,11 +12,11 @@ export default function Home() {
       {/* Hero Banner */}
       <div className="relative w-full h-80">
          <Image
-            src="https://file.hstatic.net/1000284478/file/loading-cate-home_42d88ebc869748e692bb3b09e337812d.jpg"
-            alt="Hero banner image"
+            src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2023/03/MLB.jpg?resize=800%2C419&ssl=1"
+            alt="MLB fashion shoot"
             fill
             className="object-cover"
-            data-ai-hint="fashion banner"
+            data-ai-hint="fashion model"
           />
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-4">
