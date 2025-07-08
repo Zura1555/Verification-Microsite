@@ -35,10 +35,10 @@ export default function Home() {
                 </h2>
                 <div className="max-w-2xl text-lg text-white/90 space-y-4">
                   <p>
-                    Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.
+                    Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng<br />của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.
                   </p>
                   <p>
-                    MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.
+                    MAISON cam kết mang đến trải nghiệm mua sắm an toàn và<br />minh bạch cho người tiêu dùng.
                   </p>
                 </div>
               </header>
