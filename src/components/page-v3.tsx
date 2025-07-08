@@ -41,11 +41,11 @@ export function PageV3() {
          {/* Background Image */}
          <div className="absolute inset-0 z-0">
           <Image
-            src="https://placehold.co/1200x600.png"
+            src="https://images.unsplash.com/photo-1485518882345-15568b007407?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxGYXNoaW9ufGVufDB8fHx8MTc1MTk0NzU4N3ww&ixlib=rb-4.1.0&q=80&w=1080"
             alt="Maison Hero Background"
             fill
             className="object-cover"
-            data-ai-hint="store interior"
+            data-ai-hint="fashion model"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/20" />
         </div>
