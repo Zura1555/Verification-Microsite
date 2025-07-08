@@ -152,7 +152,7 @@ export function Authenticator({
     switch (status) {
       case "official":
         return (
-          <Alert>
+          <Alert variant="success">
             <CheckCircle2 className="h-4 w-4" />
             <AlertTitle>Chính hãng</AlertTitle>
             <AlertDescription>
