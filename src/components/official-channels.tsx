@@ -1,10 +1,18 @@
+"use client";
+
+import { useState } from "react";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Globe, Facebook, Instagram, MessageCircle, Youtube, ShoppingCart, LocateIcon } from "lucide-react";
+  Globe,
+  Facebook,
+  Instagram,
+  MessageCircle,
+  Youtube,
+  ShoppingCart,
+  LocateIcon,
+  Users,
+  Headset,
+  ChevronLeft,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -18,9 +26,10 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const channelGroups = [
-  {
+const channelData = {
+  Website: {
     name: 'Website',
+    Icon: Globe,
     channels: [
       { name: 'MLB Việt Nam', Icon: Globe, href: 'https://www.maisononline.vn/collections/mlb' },
       { name: 'Maison Online', Icon: Globe, href: 'https://www.maisononline.vn/' },
@@ -28,16 +37,18 @@ const channelGroups = [
       { name: 'Store Locator', Icon: LocateIcon, href: '#' },
     ]
   },
-  {
+  Ecommerce: {
     name: 'Ecommerce',
+    Icon: ShoppingCart,
     channels: [
       { name: 'Shopee', Icon: ShoppingCart, href: '#' },
       { name: 'Tiktok Shop', Icon: TiktokIcon, href: '#' },
       { name: 'Lazada', Icon: ShoppingCart, href: '#' },
     ]
   },
-  {
+  'Social Media': {
     name: 'Social Media',
+    Icon: Users,
     channels: [
       { name: 'Facebook', Icon: Facebook, href: 'https://www.facebook.com/mlb.kr.vn' },
       { name: 'Instagram', Icon: Instagram, href: 'https://www.instagram.com/mlb.kr.vn/' },
@@ -45,17 +56,14 @@ const channelGroups = [
       { name: 'Youtube', Icon: Youtube, href: '#' },
     ]
   },
-  {
+  Support: {
     name: 'Support',
+    Icon: Headset,
     channels: [
       { name: 'Zalo OA', Icon: MessageCircle, href: 'https://zalo.me/1922591942732168937' },
     ]
   }
-].map(group => ({
-  ...group,
-  preview: group.channels.map(c => c.name).join(', ')
-}));
-
+};
 
 const ChannelLink = ({ name, Icon, href }: { name: string; Icon: React.ElementType; href: string; }) => (
   <a
@@ -69,30 +77,86 @@ const ChannelLink = ({ name, Icon, href }: { name: string; Icon: React.ElementTy
   </a>
 );
 
+const CategoryBlock = ({ Icon, name, onClick }: { Icon: React.ElementType; name: string; onClick: () => void; }) => (
+  <button
+    onClick={onClick}
+    className="flex flex-col items-center justify-center space-y-2 rounded-lg border bg-card p-4 text-center text-sm font-medium text-foreground shadow-sm transition-all hover:bg-primary/5 hover:shadow-md hover:-translate-y-0.5"
+  >
+    <Icon className="h-7 w-7 text-primary" />
+    <span className="truncate">{name}</span>
+  </button>
+);
+
+const BackButton = ({ onClick }: { onClick: () => void; }) => (
+  <button
+    onClick={onClick}
+    className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+  >
+    <ChevronLeft className="h-4 w-4 mr-1" />
+    Back to Categories
+  </button>
+);
+
 export function OfficialChannels({ className }: { className?: string }) {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [isFading, setIsFading] = useState(false);
+
+  const handleCategorySelect = (categoryName: string) => {
+    setIsFading(true);
+    setTimeout(() => {
+      setActiveCategory(categoryName);
+      setIsFading(false);
+    }, 200);
+  };
+
+  const handleBack = () => {
+    setIsFading(true);
+    setTimeout(() => {
+      setActiveCategory(null);
+      setIsFading(false);
+    }, 200);
+  };
+
+  const selectedData = activeCategory ? channelData[activeCategory as keyof typeof channelData] : null;
+
   return (
-    <div className={cn("w-full", className)}>
-      <Accordion type="multiple" className="w-full space-y-0">
-        {channelGroups.map((group) => (
-          <AccordionItem value={group.name} key={group.name} className="m-0 mb-2 rounded-lg border bg-background shadow-sm">
-            <AccordionTrigger className="px-4 py-3 text-sm font-medium hover:no-underline">
-              <div className="flex flex-col items-start text-left">
-                <span className="font-semibold text-foreground">{group.name}</span>
-                <span className="text-xs font-normal text-muted-foreground truncate max-w-[200px] sm:max-w-xs md:max-w-sm">
-                  {group.preview}
-                </span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="px-4 pb-4 pt-0">
-              <div className="grid grid-cols-1 gap-2">
-                {group.channels.map(channel => (
-                  <ChannelLink key={channel.name} {...channel} />
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+    <div className={cn("w-full relative min-h-[180px]", className)}>
+      <div
+        className={cn(
+          "transition-opacity duration-200 ease-in-out",
+          activeCategory && !isFading ? "opacity-0 invisible h-0" : "opacity-100",
+          isFading && "opacity-0"
+        )}
+      >
+        <div className="grid grid-cols-2 gap-3">
+          {Object.values(channelData).map((category) => (
+            <CategoryBlock
+              key={category.name}
+              Icon={category.Icon}
+              name={category.name}
+              onClick={() => handleCategorySelect(category.name)}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          "transition-opacity duration-200 ease-in-out absolute inset-0",
+          !activeCategory || isFading ? "opacity-0 invisible" : "opacity-100"
+        )}
+      >
+        {selectedData && (
+          <div>
+            <BackButton onClick={handleBack} />
+            <div className="grid grid-cols-1 gap-2 mt-2">
+              {selectedData.channels.map((channel) => (
+                <ChannelLink key={channel.name} {...channel} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
