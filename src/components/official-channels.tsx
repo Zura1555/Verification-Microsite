@@ -120,7 +120,7 @@ export function OfficialChannels({ className }: { className?: string }) {
   const selectedData = activeCategory ? channelData[activeCategory as keyof typeof channelData] : null;
 
   return (
-    <div className={cn("w-full relative min-h-[180px]", className)}>
+    <div className={cn("w-full relative", className)}>
       <div
         className={cn(
           "transition-opacity duration-200 ease-in-out",

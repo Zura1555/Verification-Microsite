@@ -279,7 +279,7 @@ export function Authenticator({
         </Button>
       </form>
       
-      <div className="min-h-[148px] pt-2">
+      <div className="pt-2">
         {renderResult()}
       </div>
     </div>
