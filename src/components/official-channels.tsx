@@ -25,7 +25,7 @@ const officialChannelsList = [
 
 export function OfficialChannels({ className }: { className?: string }) {
   return (
-    <div className={cn("flex flex-wrap justify-center gap-3", className)}>
+    <div className={cn("flex flex-wrap justify-center gap-2 sm:gap-3", className)}>
       {officialChannelsList.map(({ name, Icon, href }) => (
         <a
           key={name}
@@ -33,9 +33,9 @@ export function OfficialChannels({ className }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           title={name}
-          className="group flex h-14 w-14 items-center justify-center rounded-lg border bg-card text-foreground shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:bg-primary/5"
+          className="group flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg border bg-card text-foreground shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:bg-primary/5"
         >
-          <Icon className="h-7 w-7 text-muted-foreground group-hover:text-primary" />
+          <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-muted-foreground group-hover:text-primary" />
           <span className="sr-only">{name}</span>
         </a>
       ))}
