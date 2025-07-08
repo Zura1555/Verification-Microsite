@@ -5,7 +5,7 @@ import ReactConfetti from 'react-confetti';
 import { Input } from "@/components/ui/input";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, XCircle, Info } from "lucide-react";
+import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BrandLogoPlaceholder } from "./brand-logo-placeholder";
 import { OfficialChannels } from "./official-channels";
@@ -186,8 +186,10 @@ export function Authenticator({
             <AlertTriangle className="h-4 w-4" />
             <AlertTitle>Không thuộc hệ thống MAISON</AlertTitle>
             <AlertDescription className="mt-2 space-y-4">
-              <p>Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
-               <Button variant="outline" size="sm">
+              <div className="space-y-1">
+                <p>Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
+              </div>
+               <Button variant="destructive" size="sm">
                   Báo cáo kênh nghi ngờ
                   <ShieldAlert className="ml-2 h-4 w-4" />
                 </Button>
