@@ -52,7 +52,7 @@ export function SiteFooter({ className }: { className?: string }) {
                     <div className="lg:col-span-7">
                         <div className="relative h-12 w-48">
                              <Image
-                                src="https://maisonrmi.com/wp-content/uploads/2022/04/logo-maison-1.png"
+                                src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2022/07/logo.png?fit=1201%2C629&ssl=1"
                                 alt="Maison Logo"
                                 fill
                                 className="object-contain"
