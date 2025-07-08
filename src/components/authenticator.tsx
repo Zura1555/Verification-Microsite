@@ -189,9 +189,9 @@ export function Authenticator({
               <div className="space-y-1">
                 <p>Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
               </div>
-               <Button variant="destructive" size="sm">
+               <Button variant="outline" size="sm" className="border-amber-400 bg-amber-50 text-amber-900 hover:bg-amber-100 hover:text-amber-900">
                   Báo cáo kênh nghi ngờ
-                  <ShieldAlert className="ml-2 h-4 w-4" />
+                  <ShieldAlert className="ml-2 h-4 w-4 text-red-600" />
                 </Button>
             </AlertDescription>
           </Alert>
