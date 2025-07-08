@@ -30,10 +30,10 @@ export default function Home() {
                     data-ai-hint="logo white"
                   />
                 </div>
-                <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
+                <h2 className="font-headline text-2xl font-semibold tracking-tight sm:text-4xl">
                   Xác minh kênh mua hàng chính hãng
                 </h2>
-                <div className="max-w-2xl text-lg text-white/90 space-y-4">
+                <div className="max-w-2xl text-base sm:text-lg text-white/90 space-y-4">
                   <p>
                     Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng<br />của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.
                   </p>
