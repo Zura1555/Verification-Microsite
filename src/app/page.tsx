@@ -33,9 +33,14 @@ export default function Home() {
                 <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
                   Xác minh kênh mua hàng chính hãng
                 </h2>
-                <p className="max-w-2xl text-lg text-white/90">
-                  Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng. MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.
-                </p>
+                <div className="max-w-2xl text-lg text-white/90 space-y-4">
+                  <p>
+                    Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.
+                  </p>
+                  <p>
+                    MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.
+                  </p>
+                </div>
               </header>
           </div>
       </div>
