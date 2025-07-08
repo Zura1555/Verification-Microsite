@@ -11,7 +11,7 @@ export function MaisonLogo({ className, ...props }: React.HTMLAttributes<HTMLDiv
       {...props}
     >
       <Image
-        src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2022/04/Maison-Retail-Management-INT_Logo_horizontal-ver-1.png?fit=218%2C90&ssl=1"
+        src="https://mdm.maisonrmi.com/assets/858c71b3-5aff-4c3f-b485-a07a9953097c?key=system-small-cover"
         alt="Maison Logo"
         fill
         className="object-contain"
