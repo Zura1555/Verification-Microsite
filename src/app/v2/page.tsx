@@ -26,7 +26,7 @@ export default function V2Page() {
             </header>
 
             <Authenticator />
-            <Faq />
+            <Faq layout="vertical" />
           </main>
         </div>
         <div className="hidden lg:block lg:w-1/2 relative">

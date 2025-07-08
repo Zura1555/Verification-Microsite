@@ -6,8 +6,9 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export function Faq() {
+export function Faq({ layout = 'horizontal' }: { layout?: 'horizontal' | 'vertical' }) {
   const faqItems = [
     {
       question: "Tại sao cần xác minh kênh mua hàng?",
@@ -36,7 +37,10 @@ export function Faq() {
 
   return (
     <section className="w-full pt-8">
-      <div className="grid grid-cols-1 gap-8 items-start">
+      <div className={cn(
+        "grid grid-cols-1 gap-8 items-start",
+        layout === 'horizontal' && 'md:grid-cols-2'
+      )}>
         {/* Left Column: FAQs */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-left">
