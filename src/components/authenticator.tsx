@@ -5,7 +5,7 @@ import ReactConfetti from 'react-confetti';
 import { Input } from "@/components/ui/input";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, XCircle, Info } from "lucide-react";
+import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, XCircle, Info, Globe, Facebook, Instagram, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious" | "brand-info";
@@ -169,30 +169,42 @@ export function Authenticator({
             <AlertTitle>Kênh chính thức của MLB</AlertTitle>
             <AlertDescription>
               <p className="mb-4">Dưới đây là danh sách các kênh chính thức của thương hiệu MLB được phân phối bởi MAISON:</p>
-              <ul className="space-y-2 list-disc pl-5">
-                <li>
-                  <strong>Website:</strong>{" "}
-                  <a href="https://www.maisononline.vn/collections/mlb" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-                    maisononline.vn/collections/mlb
-                  </a>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <Globe className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
+                  <div>
+                    <strong>Website:</strong>{" "}
+                    <a href="https://www.maisononline.vn/collections/mlb" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
+                      maisononline.vn/collections/mlb
+                    </a>
+                  </div>
                 </li>
-                <li>
-                  <strong>Facebook:</strong>{" "}
-                  <a href="https://www.facebook.com/mlb.kr.vn" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-                    facebook.com/mlb.kr.vn
-                  </a>
+                <li className="flex items-start gap-3">
+                  <Facebook className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
+                  <div>
+                    <strong>Facebook:</strong>{" "}
+                    <a href="https://www.facebook.com/mlb.kr.vn" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
+                      facebook.com/mlb.kr.vn
+                    </a>
+                  </div>
                 </li>
-                <li>
-                  <strong>Instagram:</strong>{" "}
-                  <a href="https://www.instagram.com/mlb.kr.vn/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-                    instagram.com/mlb.kr.vn
-                  </a>
+                <li className="flex items-start gap-3">
+                  <Instagram className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
+                  <div>
+                    <strong>Instagram:</strong>{" "}
+                    <a href="https://www.instagram.com/mlb.kr.vn/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
+                      instagram.com/mlb.kr.vn
+                    </a>
+                  </div>
                 </li>
-                  <li>
-                  <strong>Zalo:</strong>{" "}
-                  <a href="https://zalo.me/1922591942732168937" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
-                    MLB Việt Nam trên Zalo
-                  </a>
+                  <li className="flex items-start gap-3">
+                  <MessageCircle className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
+                  <div>
+                    <strong>Zalo:</strong>{" "}
+                    <a href="https://zalo.me/1922591942732168937" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
+                      MLB Việt Nam trên Zalo
+                    </a>
+                  </div>
                 </li>
               </ul>
             </AlertDescription>
