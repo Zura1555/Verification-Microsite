@@ -198,10 +198,6 @@ export function Authenticator({
             <AlertDescription>
                 <p>Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
                 <p className="mb-4">Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
-                 <Button variant="outline" size="sm">
-                    Báo cáo kênh nghi ngờ
-                    <ShieldAlert className="ml-2" />
-                </Button>
             </AlertDescription>
           </Alert>
         );
