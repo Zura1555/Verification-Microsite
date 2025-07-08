@@ -8,7 +8,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, XCircle, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious";
+type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious" | "brand-info";
 
 const exampleLinks = [
   { url: 'www.maisononline.vn', status: 'official' as const },
@@ -103,11 +103,17 @@ export function Authenticator({
     setTimeout(() => {
         const officialDomains = ["maisononline.vn"];
         const officialHandles = ["mlb.kr.vn"];
+        const brandHandles = ["mlb"];
 
         let cleanInput = value.toLowerCase().trim();
         
         cleanInput = cleanInput.replace(/^(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '').replace(/^@/, '');
         
+        if (brandHandles.includes(cleanInput)) {
+          setStatus("brand-info");
+          return;
+        }
+
         const domainOrHandle = cleanInput.split('/')[0];
 
         if (officialDomains.includes(domainOrHandle) || officialHandles.includes(cleanInput)) {
@@ -153,6 +159,42 @@ export function Authenticator({
                 Visit Official Store
                 <ExternalLink className="ml-2" />
               </Button>
+            </AlertDescription>
+          </Alert>
+        );
+      case "brand-info":
+        return (
+          <Alert>
+            <CheckCircle2 className="h-4 w-4" />
+            <AlertTitle>Kênh chính thức của MLB</AlertTitle>
+            <AlertDescription>
+              <p className="mb-4">Dưới đây là danh sách các kênh chính thức của thương hiệu MLB được phân phối bởi MAISON:</p>
+              <ul className="space-y-2 list-disc pl-5">
+                <li>
+                  <strong>Website:</strong>{" "}
+                  <a href="https://www.maisononline.vn/collections/mlb" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                    maisononline.vn/collections/mlb
+                  </a>
+                </li>
+                <li>
+                  <strong>Facebook:</strong>{" "}
+                  <a href="https://www.facebook.com/mlb.kr.vn" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                    facebook.com/mlb.kr.vn
+                  </a>
+                </li>
+                <li>
+                  <strong>Instagram:</strong>{" "}
+                  <a href="https://www.instagram.com/mlb.kr.vn/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                    instagram.com/mlb.kr.vn
+                  </a>
+                </li>
+                  <li>
+                  <strong>Zalo:</strong>{" "}
+                  <a href="https://zalo.me/1922591942732168937" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+                    MLB Việt Nam trên Zalo
+                  </a>
+                </li>
+              </ul>
             </AlertDescription>
           </Alert>
         );
