@@ -12,11 +12,11 @@ export default function Home() {
       {/* Hero Banner */}
       <div className="relative w-full h-80">
          <Image
-            src="https://placehold.co/1200x400.png"
-            alt="Header background"
+            src="https://file.hstatic.net/1000284478/file/loading-cate-home_42d88ebc869748e692bb3b09e337812d.jpg"
+            alt="Hero banner image"
             fill
             className="object-cover"
-            data-ai-hint="store interior"
+            data-ai-hint="fashion banner"
           />
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white p-4">
