@@ -1,4 +1,10 @@
-import { Globe, Facebook, Instagram, MessageCircle, Youtube, ShoppingCart } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Globe, Facebook, Instagram, MessageCircle, Youtube, ShoppingCart, LocateIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -12,33 +18,81 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const officialChannelsList = [
-  { name: 'Website', Icon: Globe, href: 'https://www.maisononline.vn/collections/mlb' },
-  { name: 'Facebook', Icon: Facebook, href: 'https://www.facebook.com/mlb.kr.vn' },
-  { name: 'Instagram', Icon: Instagram, href: 'https://www.instagram.com/mlb.kr.vn/' },
-  { name: 'Zalo', Icon: MessageCircle, href: 'https://zalo.me/1922591942732168937' },
-  { name: 'TikTok', Icon: TiktokIcon, href: '#' },
-  { name: 'Youtube', Icon: Youtube, href: '#' },
-  { name: 'Shopee', Icon: ShoppingCart, href: '#' },
-  { name: 'Lazada', Icon: ShoppingCart, href: '#' },
-];
+const channelGroups = [
+  {
+    name: 'Website',
+    channels: [
+      { name: 'MLB Việt Nam', Icon: Globe, href: 'https://www.maisononline.vn/collections/mlb' },
+      { name: 'Maison Online', Icon: Globe, href: 'https://www.maisononline.vn/' },
+      { name: 'Maison RMI', Icon: Globe, href: 'https://maisonrmi.com/' },
+      { name: 'Store Locator', Icon: LocateIcon, href: '#' },
+    ]
+  },
+  {
+    name: 'Ecommerce',
+    channels: [
+      { name: 'Shopee', Icon: ShoppingCart, href: '#' },
+      { name: 'Tiktok Shop', Icon: TiktokIcon, href: '#' },
+      { name: 'Lazada', Icon: ShoppingCart, href: '#' },
+    ]
+  },
+  {
+    name: 'Social Media',
+    channels: [
+      { name: 'Facebook', Icon: Facebook, href: 'https://www.facebook.com/mlb.kr.vn' },
+      { name: 'Instagram', Icon: Instagram, href: 'https://www.instagram.com/mlb.kr.vn/' },
+      { name: 'TikTok', Icon: TiktokIcon, href: '#' },
+      { name: 'Youtube', Icon: Youtube, href: '#' },
+    ]
+  },
+  {
+    name: 'Support',
+    channels: [
+      { name: 'Zalo OA', Icon: MessageCircle, href: 'https://zalo.me/1922591942732168937' },
+    ]
+  }
+].map(group => ({
+  ...group,
+  preview: group.channels.map(c => c.name).join(', ')
+}));
+
+
+const ChannelLink = ({ name, Icon, href }: { name: string; Icon: React.ElementType; href: string; }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group flex items-center space-x-3 rounded-md border bg-card p-3 text-sm text-foreground shadow-sm transition-colors hover:bg-primary/5 hover:text-primary"
+  >
+    <Icon className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary" />
+    <span className="flex-1 truncate">{name}</span>
+  </a>
+);
 
 export function OfficialChannels({ className }: { className?: string }) {
   return (
-    <div className={cn("flex flex-wrap justify-center gap-2 sm:gap-3", className)}>
-      {officialChannelsList.map(({ name, Icon, href }) => (
-        <a
-          key={name}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={name}
-          className="group flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg border bg-card text-foreground shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:bg-primary/5"
-        >
-          <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-muted-foreground group-hover:text-primary" />
-          <span className="sr-only">{name}</span>
-        </a>
-      ))}
+    <div className={cn("w-full", className)}>
+      <Accordion type="multiple" className="w-full space-y-0">
+        {channelGroups.map((group) => (
+          <AccordionItem value={group.name} key={group.name} className="m-0 mb-2 rounded-lg border bg-background shadow-sm">
+            <AccordionTrigger className="px-4 py-3 text-sm font-medium hover:no-underline">
+              <div className="flex flex-col items-start text-left">
+                <span className="font-semibold text-foreground">{group.name}</span>
+                <span className="text-xs font-normal text-muted-foreground truncate max-w-[200px] sm:max-w-xs md:max-w-sm">
+                  {group.preview}
+                </span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4 pt-0">
+              <div className="grid grid-cols-1 gap-2">
+                {group.channels.map(channel => (
+                  <ChannelLink key={channel.name} {...channel} />
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   );
 }
