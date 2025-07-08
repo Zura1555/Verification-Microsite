@@ -34,7 +34,7 @@ const channelData = {
       { name: 'MLB Việt Nam', Icon: Globe, href: 'https://www.maisononline.vn/collections/mlb', displayUrl: 'maisononline.vn' },
       { name: 'Maison Online', Icon: Globe, href: 'https://www.maisononline.vn/', displayUrl: 'maisononline.vn' },
       { name: 'Maison RMI', Icon: Globe, href: 'https://maisonrmi.com/', displayUrl: 'maisonrmi.com' },
-      { name: 'Store Locator', Icon: LocateIcon, href: '#' },
+      { name: 'Store Locator', Icon: LocateIcon, href: '#', displayUrl: 'Hệ thống cửa hàng' },
     ]
   },
   Ecommerce: {
@@ -126,12 +126,13 @@ export function OfficialChannels({ className }: { className?: string }) {
   const selectedData = activeCategory ? channelData[activeCategory as keyof typeof channelData] : null;
 
   return (
-    <div className={cn("w-full relative", className)}>
+    <div className={cn("grid", className)}>
+      {/* Both views are placed in the same grid cell to overlap */}
       <div
+        style={{ gridArea: '1 / 1 / -1 / -1' }}
         className={cn(
           "transition-opacity duration-200 ease-in-out",
-          activeCategory && !isFading ? "opacity-0 invisible h-0" : "opacity-100",
-          isFading && "opacity-0"
+          (activeCategory || isFading) && "opacity-0 invisible"
         )}
       >
         <div className="grid grid-cols-4 gap-3">
@@ -147,9 +148,10 @@ export function OfficialChannels({ className }: { className?: string }) {
       </div>
 
       <div
+        style={{ gridArea: '1 / 1 / -1 / -1' }}
         className={cn(
-          "transition-opacity duration-200 ease-in-out absolute inset-0",
-          !activeCategory || isFading ? "opacity-0 invisible" : "opacity-100"
+          "transition-opacity duration-200 ease-in-out",
+          (!activeCategory || isFading) && "opacity-0 invisible"
         )}
       >
         {selectedData && (
