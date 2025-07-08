@@ -70,10 +70,10 @@ const ChannelLink = ({ name, Icon, href }: { name: string; Icon: React.ElementTy
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="group flex items-center space-x-3 rounded-md border bg-card p-3 text-sm text-foreground shadow-sm transition-colors hover:bg-primary/5 hover:text-primary"
+    className="group flex items-center space-x-2 rounded-md border bg-card px-2.5 py-1.5 text-sm text-foreground shadow-sm transition-colors hover:bg-primary/5 hover:text-primary"
   >
-    <Icon className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary" />
-    <span className="flex-1 truncate">{name}</span>
+    <Icon className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary" />
+    <span className="truncate">{name}</span>
   </a>
 );
 
@@ -128,7 +128,7 @@ export function OfficialChannels({ className }: { className?: string }) {
           isFading && "opacity-0"
         )}
       >
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-4 gap-3">
           {Object.values(channelData).map((category) => (
             <CategoryBlock
               key={category.name}
@@ -149,7 +149,7 @@ export function OfficialChannels({ className }: { className?: string }) {
         {selectedData && (
           <div>
             <BackButton onClick={handleBack} />
-            <div className="grid grid-cols-1 gap-2 mt-2">
+            <div className="flex flex-wrap gap-2 mt-2">
               {selectedData.channels.map((channel) => (
                 <ChannelLink key={channel.name} {...channel} />
               ))}
