@@ -174,86 +174,39 @@ export function Authenticator({
           </Alert>
         );
       case "brand-info":
+        const officialChannels = [
+          { name: 'Website', Icon: Globe, href: 'https://www.maisononline.vn/collections/mlb' },
+          { name: 'Facebook', Icon: Facebook, href: 'https://www.facebook.com/mlb.kr.vn' },
+          { name: 'Instagram', Icon: Instagram, href: 'https://www.instagram.com/mlb.kr.vn/' },
+          { name: 'Zalo', Icon: MessageCircle, href: 'https://zalo.me/1922591942732168937' },
+          { name: 'TikTok', Icon: TiktokIcon, href: '#' },
+          { name: 'Youtube', Icon: Youtube, href: '#' },
+          { name: 'Shopee', Icon: ShoppingCart, href: '#' },
+          { name: 'Lazada', Icon: ShoppingCart, href: '#' },
+        ];
         return (
           <Alert>
             <CheckCircle2 className="h-4 w-4" />
             <AlertTitle>Kênh chính thức của MLB</AlertTitle>
             <AlertDescription>
-              <p className="mb-4">Dưới đây là danh sách các kênh chính thức của thương hiệu MLB được phân phối bởi MAISON:</p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-                <li className="flex items-start gap-3">
-                  <Globe className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>Website:</strong>{" "}
-                    <a href="https://www.maisononline.vn/collections/mlb" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      maisononline.vn/collections/mlb
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Facebook className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>Facebook:</strong>{" "}
-                    <a href="https://www.facebook.com/mlb.kr.vn" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      facebook.com/mlb.kr.vn
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Instagram className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>Instagram:</strong>{" "}
-                    <a href="https://www.instagram.com/mlb.kr.vn/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      instagram.com/mlb.kr.vn
-                    </a>
-                  </div>
-                </li>
-                  <li className="flex items-start gap-3">
-                  <MessageCircle className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>Zalo:</strong>{" "}
-                    <a href="https://zalo.me/1922591942732168937" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      MLB Việt Nam trên Zalo
-                    </a>
-                  </div>
-                </li>
-                 <li className="flex items-start gap-3">
-                  <TiktokIcon className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>TikTok:</strong>{" "}
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      MLB Việt Nam on TikTok
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Youtube className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>Youtube:</strong>{" "}
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      MLB Việt Nam on Youtube
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <ShoppingCart className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>Shopee:</strong>{" "}
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      MLB Việt Nam on Shopee
-                    </a>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <ShoppingCart className="h-4 w-4 mt-1 flex-shrink-0 text-muted-foreground" />
-                  <div>
-                    <strong>Lazada:</strong>{" "}
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary break-all">
-                      MLB Việt Nam on Lazada
-                    </a>
-                  </div>
-                </li>
-              </ul>
+              <p className="mb-4 text-center">
+                Nhấp vào biểu tượng để truy cập các kênh chính thức của thương hiệu MLB do MAISON phân phối.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3 pt-2">
+                {officialChannels.map(({ name, Icon, href }) => (
+                  <a
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={name}
+                    className="group flex h-14 w-14 items-center justify-center rounded-lg border bg-card text-foreground shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:bg-primary/5"
+                  >
+                    <Icon className="h-7 w-7 text-muted-foreground group-hover:text-primary" />
+                    <span className="sr-only">{name}</span>
+                  </a>
+                ))}
+              </div>
             </AlertDescription>
           </Alert>
         );
