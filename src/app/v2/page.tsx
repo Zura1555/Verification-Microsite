@@ -38,6 +38,7 @@ export default function V2Page() {
               className="object-cover"
               data-ai-hint="fashion"
             />
+            <div className="absolute inset-0 bg-black/50" />
           </div>
         </div>
 
