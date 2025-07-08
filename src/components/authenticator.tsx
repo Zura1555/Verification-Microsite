@@ -155,9 +155,11 @@ export function Authenticator({
           <Alert variant="success">
             <CheckCircle2 className="h-4 w-4" />
             <AlertTitle>Chính hãng</AlertTitle>
-            <AlertDescription>
-              <p className="mb-2">Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
-              <p className="mb-4">Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
+            <AlertDescription className="mt-2 space-y-4">
+              <div className="space-y-1">
+                <p>Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
+                <p>Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
+              </div>
               <Button size="sm">
                 Visit Official Store
                 <ExternalLink className="ml-2 h-4 w-4" />
@@ -183,8 +185,8 @@ export function Authenticator({
           <Alert variant="warning">
             <AlertTriangle className="h-4 w-4" />
             <AlertTitle>Không thuộc hệ thống MAISON</AlertTitle>
-            <AlertDescription>
-              <p className="mb-4">Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
+            <AlertDescription className="mt-2 space-y-4">
+              <p>Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
                <Button variant="outline" size="sm">
                   Báo cáo kênh nghi ngờ
                   <ShieldAlert className="ml-2 h-4 w-4" />
@@ -197,8 +199,8 @@ export function Authenticator({
           <Alert variant="destructive">
             <XCircle className="h-4 w-4" />
             <AlertTitle>Có thể giả mạo</AlertTitle>
-            <AlertDescription>
-                <p className="mb-2">Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
+            <AlertDescription className="mt-2 space-y-1">
+                <p>Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
                 <p>Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
             </AlertDescription>
           </Alert>
