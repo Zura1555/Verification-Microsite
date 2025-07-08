@@ -18,7 +18,7 @@ const navLinks = [
 
 export function SiteHeader({ className }: { className?: string }) {
   return (
-    <header className={cn("sticky top-0 z-40 w-full border-b bg-background", className)}>
+    <header className={cn("sticky top-0 z-40 w-full border-b bg-card", className)}>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <MaisonLogo className="h-12 w-48" />
@@ -46,7 +46,7 @@ export function SiteHeader({ className }: { className?: string }) {
                 <span className="sr-only">Open Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="bg-card">
                 <Link href="/" className="mb-8 flex items-center">
                   <MaisonLogo className="h-10 w-40" />
                 </Link>
