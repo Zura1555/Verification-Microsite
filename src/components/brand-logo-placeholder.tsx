@@ -4,7 +4,7 @@ import Image from "next/image";
 export function BrandLogoPlaceholder({ className }: { className?: string }) {
   return (
     <div className={cn("flex justify-center", className)}>
-      <div className="relative h-20 w-60">
+      <div className="relative h-14 w-44">
         <Image
           src="https://th.mlb-korea.com/cdn/shop/files/Logo_New-02.png?v=1684485771&width=309"
           alt="Brand Logo"
