@@ -50,7 +50,7 @@ export function SiteFooter({ className }: { className?: string }) {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 gap-x-8">
                     <div className="lg:col-span-7">
-                        <div className="relative h-12 w-48">
+                        <div className="relative h-24 w-48">
                              <Image
                                 src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2022/07/logo.png?fit=1201%2C629&ssl=1"
                                 alt="Maison Logo"
