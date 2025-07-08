@@ -51,7 +51,7 @@ export function PageV3() {
         </div>
 
         {/* Content Grid */}
-        <div className="relative z-10 mx-auto grid max-w-5xl grid-cols-1 items-center px-4 py-16 sm:px-6 sm:py-24 lg:px-8 md:grid-cols-5 md:gap-12">
+        <div className="relative z-10 mx-auto grid max-w-5xl grid-cols-1 items-start px-4 py-16 sm:px-6 sm:py-24 lg:px-8 md:grid-cols-5 md:gap-12">
           {/* Left Column: Info */}
           <div className="flex-col justify-center space-y-6 pb-8 text-left md:col-span-2 md:pb-0">
             <h2 className="font-headline text-4xl font-bold tracking-tight text-white sm:text-5xl">
