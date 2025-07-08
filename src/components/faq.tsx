@@ -36,7 +36,7 @@ export function Faq() {
 
   return (
     <section className="w-full pt-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div className="grid grid-cols-1 gap-8 items-start">
         {/* Left Column: FAQs */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-left">
