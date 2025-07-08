@@ -38,7 +38,6 @@ export default function V2Page() {
               className="object-cover"
               data-ai-hint="storefront night"
             />
-            <div className="absolute inset-0 bg-black/30" />
           </div>
         </div>
 
