@@ -31,9 +31,9 @@ const channelData = {
     name: 'Website',
     Icon: Globe,
     channels: [
-      { name: 'MLB Việt Nam', Icon: Globe, href: 'https://www.maisononline.vn/collections/mlb' },
-      { name: 'Maison Online', Icon: Globe, href: 'https://www.maisononline.vn/' },
-      { name: 'Maison RMI', Icon: Globe, href: 'https://maisonrmi.com/' },
+      { name: 'MLB Việt Nam', Icon: Globe, href: 'https://www.maisononline.vn/collections/mlb', displayUrl: 'maisononline.vn' },
+      { name: 'Maison Online', Icon: Globe, href: 'https://www.maisononline.vn/', displayUrl: 'maisononline.vn' },
+      { name: 'Maison RMI', Icon: Globe, href: 'https://maisonrmi.com/', displayUrl: 'maisonrmi.com' },
       { name: 'Store Locator', Icon: LocateIcon, href: '#' },
     ]
   },
@@ -41,39 +41,45 @@ const channelData = {
     name: 'Ecommerce',
     Icon: ShoppingCart,
     channels: [
-      { name: 'Shopee', Icon: ShoppingCart, href: '#' },
-      { name: 'Tiktok Shop', Icon: TiktokIcon, href: '#' },
-      { name: 'Lazada', Icon: ShoppingCart, href: '#' },
+      { name: 'Shopee', Icon: ShoppingCart, href: '#', displayUrl: 'shopee.vn/mlbvietnam_official' },
+      { name: 'Tiktok Shop', Icon: TiktokIcon, href: '#', displayUrl: 'tiktok.com/@mlb_vietnam' },
+      { name: 'Lazada', Icon: ShoppingCart, href: '#', displayUrl: 'lazada.vn/shop/mlb' },
     ]
   },
   'Social Media': {
     name: 'Social Media',
     Icon: Users,
     channels: [
-      { name: 'Facebook', Icon: Facebook, href: 'https://www.facebook.com/mlb.kr.vn' },
-      { name: 'Instagram', Icon: Instagram, href: 'https://www.instagram.com/mlb.kr.vn/' },
-      { name: 'TikTok', Icon: TiktokIcon, href: '#' },
-      { name: 'Youtube', Icon: Youtube, href: '#' },
+      { name: 'Facebook', Icon: Facebook, href: 'https://www.facebook.com/mlb.kr.vn', displayUrl: 'facebook.com/mlb.kr.vn' },
+      { name: 'Instagram', Icon: Instagram, href: 'https://www.instagram.com/mlb.kr.vn/', displayUrl: 'instagram.com/mlb.kr.vn' },
+      { name: 'TikTok', Icon: TiktokIcon, href: '#', displayUrl: 'tiktok.com/@mlb.kr.vn' },
+      { name: 'Youtube', Icon: Youtube, href: '#', displayUrl: 'youtube.com/c/MLBKOREA' },
     ]
   },
   Support: {
     name: 'Support',
     Icon: Headset,
     channels: [
-      { name: 'Zalo OA', Icon: MessageCircle, href: 'https://zalo.me/1922591942732168937' },
+      { name: 'Zalo OA', Icon: MessageCircle, href: 'https://zalo.me/1922591942732168937', displayUrl: 'zalo.me/maison' },
     ]
   }
 };
 
-const ChannelLink = ({ name, Icon, href }: { name: string; Icon: React.ElementType; href: string; }) => (
+const ChannelLink = ({ name, Icon, href, displayUrl }: { name: string; Icon: React.ElementType; href: string; displayUrl?: string }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="group flex items-center space-x-2 rounded-md border bg-card px-2.5 py-1.5 text-sm text-foreground shadow-sm transition-colors hover:bg-primary/5 hover:text-primary"
+    className="group inline-flex items-center space-x-2 rounded-md border bg-card px-3 py-2 text-sm text-foreground shadow-sm transition-colors hover:bg-primary/5 hover:text-primary"
   >
     <Icon className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary" />
-    <span className="truncate">{name}</span>
+    <span className="font-medium">{name}</span>
+    {displayUrl && (
+      <>
+        <div className="h-4 w-px bg-border" />
+        <span className="text-xs text-muted-foreground truncate">{displayUrl}</span>
+      </>
+    )}
   </a>
 );
 
