@@ -175,7 +175,6 @@ export function Authenticator({
               Kênh chính thức của MLB
             </AlertTitle>
             <AlertDescription className="pt-4 text-center space-y-4">
-              <BrandLogoPlaceholder />
               <OfficialChannels />
             </AlertDescription>
           </Alert>
