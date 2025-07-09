@@ -73,11 +73,11 @@ const ChannelLink = ({ name, Icon, href, displayUrl }: { name: string; Icon: Rea
     className="group inline-flex items-center space-x-2 rounded-md border bg-card px-3 py-2 text-sm text-foreground shadow-sm transition-colors hover:bg-primary/5 hover:text-primary"
   >
     <Icon className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary" />
-    <span className="font-medium">{name}</span>
+    <span className="font-medium whitespace-nowrap">{name}</span>
     {displayUrl && (
       <>
         <div className="h-4 w-px bg-border" />
-        <span className="text-xs text-muted-foreground truncate">{displayUrl}</span>
+        <span className="min-w-0 text-xs text-muted-foreground truncate">{displayUrl}</span>
       </>
     )}
   </a>
