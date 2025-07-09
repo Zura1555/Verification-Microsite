@@ -48,11 +48,11 @@ export const translations = {
     auth_placeholder: 'Enter website, Facebook, TikTok, Instagram...',
     auth_button: 'Check',
     result_official_title: 'Official',
-    result_official_desc: "This website is part of MAISON's official distribution network. You can shop with confidence and experience genuine service.",
+    result_official_desc: "This channel is part of MAISON's official distribution network. You can shop with confidence and enjoy genuine service.",
     result_official_button: 'Visit Official Store',
     result_brand_info_title: 'Official Channels for MLB',
-    result_suspicious_title: 'Not in the MAISON Network',
-    result_suspicious_desc: 'We could not find this channel in the list of official stores within the MAISON distribution network.',
+    result_suspicious_title: 'Not an Official MAISON Channel',
+    result_suspicious_desc: 'This channel is not found in MAISON’s official distribution network.',
     result_suspicious_button: 'Report Suspicious Channel',
     result_unofficial_title: 'Potential Counterfeit',
     result_unofficial_desc: "This website is not part of MAISON's official distribution network. Please do not provide personal information and avoid making purchases to ensure your safety.",
@@ -60,7 +60,7 @@ export const translations = {
     result_invalid_desc: 'Please enter a website or social media address to check.',
     faq_title: 'Frequently Asked Questions',
     faq_q1: 'Why is it necessary to verify a sales channel?',
-    faq_a1: 'Verification gives you peace of mind that you are buying authentic products, avoiding the risks of fake or low-quality goods, and protecting your personal information from untrustworthy websites.',
+    faq_a1: "Verifying helps ensure you're purchasing genuine products, avoiding fake or poor-quality goods, and protecting your personal data from suspicious websites.",
     faq_q2: (
       <>
         <p className="mb-2">Common signs of an unofficial channel include:</p>
@@ -73,10 +73,9 @@ export const translations = {
         </ul>
       </>
     ),
-    faq_q3: 'Where can I report a counterfeit channel?',
-    faq_a3: "Use the 'Report Suspicious Channel' button or contact MAISON's customer service directly for verification assistance.",
+    faq_q3: 'Use the "Report Suspicious Channel" button or contact MAISON Customer Service for support.',
     cta_title: 'Clarity, Guaranteed.',
-    cta_desc: 'With authenticity assured, you can now explore the official collection with complete confidence.',
+    cta_desc: "Once verified, you can explore MAISON's official collection with complete confidence.",
     cta_button: 'Start Shopping',
   },
 };
