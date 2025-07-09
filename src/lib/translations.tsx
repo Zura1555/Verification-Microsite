@@ -26,12 +26,12 @@ export const translations = {
     faq_a2: (
       <>
         <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
-        <ul className="list-disc list-inside space-y-1">
-          <li>Tên miền sai chính tả</li>
-          <li>Mức giá bất thường</li>
-          <li>Thiếu thông tin liên hệ rõ ràng</li>
-          <li>Không có chính sách đổi trả</li>
-          <li>Hình ảnh không đồng nhất với thương hiệu</li>
+        <ul className="list-none space-y-1">
+          <li>+ Tên miền sai chính tả</li>
+          <li>+ Mức giá bất thường</li>
+          <li>+ Thiếu thông tin liên hệ rõ ràng</li>
+          <li>+ Không có chính sách đổi trả</li>
+          <li>+ Hình ảnh không đồng nhất với thương hiệu</li>
         </ul>
       </>
     ),
@@ -66,12 +66,12 @@ export const translations = {
     faq_a2: (
       <>
         <p className="mb-2">Common signs of an unofficial channel include:</p>
-        <ul className="list-disc list-inside space-y-1">
-          <li>Misspelled domain names</li>
-          <li>Suspiciously low prices</li>
-          <li>Missing or unclear contact information</li>
-          <li>No return or exchange policy</li>
-          <li>Visuals that do not match the brand's official style</li>
+        <ul className="list-none space-y-1">
+          <li>+ Misspelled domain names</li>
+          <li>+ Unusually low prices</li>
+          <li>+ Missing or unclear contact information</li>
+          <li>+ No return or exchange policy</li>
+          <li>+ Visuals that do not match the brand's official style</li>
         </ul>
       </>
     ),
