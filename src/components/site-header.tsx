@@ -40,7 +40,8 @@ export function SiteHeader({ className }: { className?: string }) {
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
