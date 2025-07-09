@@ -3,8 +3,8 @@ import React from 'react';
 export const translations = {
   vn: {
     hero_title: 'Xác minh kênh mua hàng chính hãng',
-    hero_desc1: 'Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.',
-    hero_desc2: 'MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.',
+    hero_desc1: <>Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng<br />của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.</>,
+    hero_desc2: <>MAISON cam kết mang đến trải nghiệm mua sắm an toàn và<br />minh bạch cho người tiêu dùng.</>,
     auth_helper: 'Hoặc thử với ví dụ:',
     auth_placeholder: 'nhập website, facebook, tiktok, instagram...',
     auth_button: 'Kiểm tra',
@@ -22,8 +22,7 @@ export const translations = {
     faq_title: 'Các câu hỏi thường gặp',
     faq_q1: 'Tại sao cần xác minh kênh mua hàng?',
     faq_a1: 'Việc xác minh giúp bạn an tâm khi mua đúng sản phẩm chính hãng, tránh rủi ro từ hàng giả, hàng kém chất lượng và bảo vệ thông tin cá nhân khỏi các website không đáng tin cậy.',
-    faq_q2: 'Làm sao để nhận biết kênh không chính hãng?',
-    faq_a2: (
+    faq_q2: (
       <>
         <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
         <ul className="list-disc list-inside space-y-1">
@@ -62,8 +61,7 @@ export const translations = {
     faq_title: 'Frequently Asked Questions',
     faq_q1: 'Why is it necessary to verify a sales channel?',
     faq_a1: 'Verification gives you peace of mind that you are buying authentic products, avoiding the risks of fake or low-quality goods, and protecting your personal information from untrustworthy websites.',
-    faq_q2: 'How can I recognize an unofficial channel?',
-    faq_a2: (
+    faq_q2: (
       <>
         <p className="mb-2">Common signs of an unofficial channel include:</p>
         <ul className="list-disc list-inside space-y-1">
