@@ -12,7 +12,7 @@ export function HeroBanner() {
         src="https://www.fashionnetwork.cn/uploads/20250627/d9b0efb878c6bfc1dd33aa3913960f5c.jpeg"
         alt="Fashion model posing"
         fill
-        className="object-cover"
+        className="object-cover object-center"
         data-ai-hint="fashion"
       />
       <div className="absolute inset-0 bg-black/50 z-10" />
