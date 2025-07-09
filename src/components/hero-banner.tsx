@@ -30,7 +30,7 @@ export function HeroBanner() {
           <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
             {t('hero_title')}
           </h2>
-          <div className="max-w-xs sm:max-w-xl text-xs sm:text-base text-white/90 space-y-4">
+          <div className="max-w-sm sm:max-w-md text-xs sm:text-base text-white/90 space-y-4">
             <p>
               {t('hero_desc1')}
             </p>
