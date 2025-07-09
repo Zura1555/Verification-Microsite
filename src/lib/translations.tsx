@@ -3,8 +3,8 @@ import React from 'react';
 export const translations = {
   vn: {
     hero_title: 'Xác minh kênh mua hàng chính hãng',
-    hero_desc1: <>Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng<br />của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.</>,
-    hero_desc2: <>MAISON cam kết mang đến trải nghiệm mua sắm an toàn và<br />minh bạch cho người tiêu dùng.</>,
+    hero_desc1: 'Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.',
+    hero_desc2: 'MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.',
     auth_helper: 'Hoặc thử với ví dụ:',
     auth_placeholder: 'Nhập website, Facebook, TikTok, Instagram...',
     auth_button: 'Kiểm tra',
@@ -25,8 +25,8 @@ export const translations = {
     faq_q2: 'Làm sao để nhận biết kênh không chính hãng?',
     faq_a2: (
       <>
-        <p>Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
-        <ul className="list-none space-y-1 mt-2">
+        <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
+        <ul className="list-none space-y-1">
           <li>+ Tên miền sai chính tả</li>
           <li>+ Mức giá bất thường</li>
           <li>+ Thiếu thông tin liên hệ rõ ràng</li>
@@ -43,8 +43,8 @@ export const translations = {
   },
   en: {
     hero_title: 'Maison Official Channel Verification',
-    hero_desc1: <>To avoid counterfeit or unauthorized purchases, please verify the authenticity<br />of the store or sales channel before placing your order.</>,
-    hero_desc2: <>MAISON is committed to providing a safe and transparent<br />shopping experience for all customers.</>,
+    hero_desc1: 'To avoid counterfeit or unauthorized purchases, please verify the authenticity of the store or sales channel before placing your order.',
+    hero_desc2: 'MAISON is committed to providing a safe and transparent shopping experience for all customers.',
     auth_helper: 'Or try with an example:',
     auth_placeholder: 'Enter website, Facebook, TikTok, Instagram...',
     auth_button: 'Check',
@@ -64,8 +64,8 @@ export const translations = {
     faq_q2: 'How can I recognize an unofficial channel?',
     faq_a2: (
       <>
-        <p>Common signs of an unofficial channel include:</p>
-        <ul className="list-none space-y-1 mt-2">
+        <p className="mb-2">Common signs of an unofficial channel include:</p>
+        <ul className="list-none space-y-1">
           <li>+ Misspelled domain names</li>
           <li>+ Unusually low prices</li>
           <li>+ Missing or unclear contact information</li>
