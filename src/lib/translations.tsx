@@ -22,7 +22,8 @@ export const translations = {
     faq_title: 'Các câu hỏi thường gặp',
     faq_q1: 'Tại sao cần xác minh kênh mua hàng?',
     faq_a1: 'Việc xác minh giúp bạn an tâm khi mua đúng sản phẩm chính hãng, tránh rủi ro từ hàng giả, hàng kém chất lượng và bảo vệ thông tin cá nhân khỏi các website không đáng tin cậy.',
-    faq_q2: (
+    faq_q2: 'Làm sao để nhận biết kênh không chính hãng?',
+    faq_a2: (
       <>
         <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
         <ul className="list-disc list-inside space-y-1">
@@ -61,7 +62,8 @@ export const translations = {
     faq_title: 'Frequently Asked Questions',
     faq_q1: 'Why is it necessary to verify a sales channel?',
     faq_a1: "Verifying helps ensure you're purchasing genuine products, avoiding fake or poor-quality goods, and protecting your personal data from suspicious websites.",
-    faq_q2: (
+    faq_q2: 'How can I recognize an unofficial channel?',
+    faq_a2: (
       <>
         <p className="mb-2">Common signs of an unofficial channel include:</p>
         <ul className="list-disc list-inside space-y-1">
@@ -73,7 +75,8 @@ export const translations = {
         </ul>
       </>
     ),
-    faq_q3: 'Use the "Report Suspicious Channel" button or contact MAISON Customer Service for support.',
+    faq_q3: 'Where can I report a counterfeit channel?',
+    faq_a3: 'Use the "Report Suspicious Channel" button or contact MAISON Customer Service for support.',
     cta_title: 'Clarity, Guaranteed.',
     cta_desc: "Once verified, you can explore MAISON's official collection with complete confidence.",
     cta_button: 'Start Shopping',
