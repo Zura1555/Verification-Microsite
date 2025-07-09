@@ -9,7 +9,7 @@ export function HeroBanner() {
   return (
     <div className="relative w-full">
       <Image
-        src="https://images.unsplash.com/photo-1485518882345-15568b007407?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxGYXNoaW9ufGVufDB8fHx8MTc1MTk0NzU4N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+        src="https://www.fashionnetwork.cn/uploads/20250627/d9b0efb878c6bfc1dd33aa3913960f5c.jpeg"
         alt="Fashion model posing"
         fill
         className="object-cover"
@@ -30,7 +30,7 @@ export function HeroBanner() {
           <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
             {t('hero_title')}
           </h2>
-          <div className="max-w-[25.2rem] sm:max-w-[29.4rem] text-xs sm:text-base text-white/90 space-y-4">
+          <div className="max-w-[27.72rem] sm:max-w-[32.34rem] text-xs sm:text-base text-white/90 space-y-4">
             <p>
               {t('hero_desc1')}
             </p>
