@@ -7,8 +7,8 @@ import { Button, type ButtonProps } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader2, Search, AlertTriangle, ExternalLink, ShieldAlert, X, CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { BrandLogoPlaceholder } from "./brand-logo-placeholder";
 import { OfficialChannels } from "./official-channels";
+import { useLanguage } from "@/context/language-context";
 
 type VerificationStatus = "idle" | "loading" | "official" | "unofficial" | "invalid" | "suspicious" | "brand-info";
 
@@ -18,7 +18,7 @@ const exampleLinks = [
   { url: 'maison-outlet.store', status: 'unofficial' as const },
 ];
 
-const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' | 'suspicious' | 'unofficial'; onClick: () => void }) => {
+const ExampleTag = ({ url, status, onClick, className }: { url: string; status: 'official' | 'suspicious' | 'unofficial'; onClick: () => void; className?: string; }) => {
   const statusConfig = {
     official: {
       Icon: CheckCircle2,
@@ -48,7 +48,8 @@ const ExampleTag = ({ url, status, onClick }: { url: string; status: 'official' 
       className={cn(
         "group text-left p-2 flex items-center gap-2.5 rounded-md border shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-in-out",
         bgColor,
-        borderColor
+        borderColor,
+        className
       )}
     >
       <Icon className={cn("h-5 w-5 shrink-0", color)} />
@@ -75,6 +76,7 @@ export function Authenticator({
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [isMounted, setIsMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsMounted(true);
@@ -154,14 +156,13 @@ export function Authenticator({
         return (
           <Alert variant="success">
             <CheckCircle2 className="h-4 w-4" />
-            <AlertTitle>Chính hãng</AlertTitle>
+            <AlertTitle>{t('result_official_title')}</AlertTitle>
             <AlertDescription className="mt-2 space-y-4">
               <div className="space-y-1">
-                <p>Trang web này thuộc hệ thống phân phối chính thức của MAISON.</p>
-                <p>Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.</p>
+                <p>{t('result_official_desc')}</p>
               </div>
               <Button size="sm">
-                Visit Official Store
+                {t('result_official_button')}
                 <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </AlertDescription>
@@ -172,7 +173,7 @@ export function Authenticator({
           <Alert>
             <AlertTitle className="flex items-center justify-center gap-2">
               <CheckCircle2 className="h-5 w-5" />
-              Kênh chính thức của MLB
+              {t('result_brand_info_title')}
             </AlertTitle>
             <AlertDescription className="pt-4 text-center space-y-4">
               <OfficialChannels />
@@ -183,13 +184,13 @@ export function Authenticator({
         return (
           <Alert variant="warning">
             <AlertTriangle className="h-4 w-4" />
-            <AlertTitle>Không thuộc hệ thống MAISON</AlertTitle>
+            <AlertTitle>{t('result_suspicious_title')}</AlertTitle>
             <AlertDescription className="mt-2 space-y-4">
               <div className="space-y-1">
-                <p>Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.</p>
+                <p>{t('result_suspicious_desc')}</p>
               </div>
                <Button variant="outline" size="sm" className="border-amber-400 bg-amber-50 text-amber-900 hover:bg-amber-100 hover:text-amber-900">
-                  Báo cáo kênh nghi ngờ
+                  {t('result_suspicious_button')}
                   <ShieldAlert className="ml-2 h-4 w-4 text-red-600" />
                 </Button>
             </AlertDescription>
@@ -199,10 +200,9 @@ export function Authenticator({
         return (
           <Alert variant="destructive">
             <XCircle className="h-4 w-4" />
-            <AlertTitle>Có thể giả mạo</AlertTitle>
+            <AlertTitle>{t('result_unofficial_title')}</AlertTitle>
             <AlertDescription className="mt-2 space-y-1">
-                <p>Trang web này không nằm trong hệ thống phân phối chính thức của MAISON.</p>
-                <p>Vui lòng không cung cấp thông tin cá nhân và tránh mua hàng để đảm bảo an toàn.</p>
+                <p>{t('result_unofficial_desc')}</p>
             </AlertDescription>
           </Alert>
         );
@@ -210,9 +210,9 @@ export function Authenticator({
         return (
           <Alert variant="destructive">
             <AlertTriangle className="h-4 w-4" />
-            <AlertTitle>Đầu vào không hợp lệ</AlertTitle>
+            <AlertTitle>{t('result_invalid_title')}</AlertTitle>
             <AlertDescription>
-              Vui lòng nhập một địa chỉ website hoặc trang mạng xã hội để kiểm tra.
+              {t('result_invalid_desc')}
             </AlertDescription>
           </Alert>
         );
@@ -226,11 +226,19 @@ export function Authenticator({
       {isMounted && showConfetti && <ReactConfetti width={windowSize.width} height={windowSize.height} recycle={false} onConfettiComplete={() => setShowConfetti(false)} className="!fixed z-50" />}
 
       <div className="space-y-3">
-        <p className="text-center text-sm text-muted-foreground">Hoặc thử với ví dụ:</p>
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          {exampleLinks.map(ex => (
+        <p className="text-center text-sm text-muted-foreground">{t('auth_helper')}</p>
+        <div className="grid grid-cols-2 justify-center gap-2 sm:flex sm:flex-wrap sm:items-center">
+          {exampleLinks.slice(0, 2).map(ex => (
             <ExampleTag key={ex.url} url={ex.url} status={ex.status} onClick={() => handleExampleClick(ex.url)} />
           ))}
+          <div className="col-span-2 flex justify-center">
+            <ExampleTag 
+              key={exampleLinks[2].url} 
+              url={exampleLinks[2].url} 
+              status={exampleLinks[2].status} 
+              onClick={() => handleExampleClick(exampleLinks[2].url)}
+            />
+          </div>
         </div>
       </div>
       
@@ -239,7 +247,7 @@ export function Authenticator({
           {!hideSearchIcon && <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />}
           <Input
             type="text"
-            placeholder="nhập website, facebook, tiktok, instagram..."
+            placeholder={t('auth_placeholder')}
             className={cn(
               "h-12 text-base focus-visible:ring-[1.5px] focus-visible:ring-offset-2 focus-visible:ring-ring",
               !hideSearchIcon && "pl-10",
@@ -276,7 +284,7 @@ export function Authenticator({
           {status === 'loading' ? (
             <Loader2 className="mr-2 h-5 w-5 animate-spin" />
           ) : null}
-          Kiểm tra
+          {t('auth_button')}
         </Button>
       </form>
       

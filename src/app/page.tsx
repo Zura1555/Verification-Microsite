@@ -1,10 +1,15 @@
+"use client";
+
 import { Authenticator } from '@/components/authenticator';
 import { Faq } from '@/components/faq';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import Image from 'next/image';
+import { useLanguage } from '@/context/language-context';
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
@@ -31,14 +36,14 @@ export default function Home() {
                   />
                 </div>
                 <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
-                  Xác minh kênh mua hàng chính hãng
+                  {t('hero_title')}
                 </h2>
                 <div className="max-w-2xl text-sm sm:text-base text-white/90 space-y-2">
                   <p>
-                    Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.
+                    {t('hero_desc1')}
                   </p>
                   <p>
-                    MAISON cam kết mang đến trải nghiệm mua sắm an toàn và minh bạch cho người tiêu dùng.
+                    {t('hero_desc2')}
                   </p>
                 </div>
               </header>

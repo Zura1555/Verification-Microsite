@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { LanguageSwitcher } from './language-switcher';
 
 const navLinks = [
   { text: 'Giới Thiệu', href: '#' },
@@ -35,6 +36,7 @@ export function SiteHeader({ className }: { className?: string }) {
               {link.text}
             </Link>
           ))}
+          <LanguageSwitcher />
         </nav>
 
         {/* Mobile Navigation */}
@@ -62,6 +64,9 @@ export function SiteHeader({ className }: { className?: string }) {
                     </Link>
                   ))}
                 </nav>
+                <div className="mt-6">
+                  <LanguageSwitcher />
+                </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -7,31 +9,23 @@ import {
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/language-context";
 
 export function Faq({ layout = 'horizontal' }: { layout?: 'horizontal' | 'vertical' }) {
+  const { t } = useLanguage();
+
   const faqItems = [
     {
-      question: "Tại sao cần xác minh kênh mua hàng?",
-      answer: "Việc xác minh giúp bạn an tâm khi mua đúng sản phẩm chính hãng, tránh rủi ro từ hàng giả, hàng kém chất lượng và bảo vệ thông tin cá nhân khỏi các website không đáng tin cậy.",
+      question: t('faq_q1'),
+      answer: t('faq_a1'),
     },
     {
-      question: "Làm sao để nhận biết kênh không chính hãng?",
-      answer: (
-        <>
-          <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
-          <ul className="list-disc space-y-1 pl-4">
-            <li>Tên miền sai chính tả</li>
-            <li>Mức giá bất thường</li>
-            <li>Thiếu thông tin liên hệ rõ ràng</li>
-            <li>Không có chính sách đổi trả</li>
-            <li>Hình ảnh không đồng nhất với thương hiệu</li>
-          </ul>
-        </>
-      ),
+      question: t('faq_q2'),
+      answer: t('faq_a2'),
     },
     {
-      question: "Tôi có thể báo cáo kênh giả mạo ở đâu?",
-      answer: "Sử dụng nút “Báo cáo kênh nghi ngờ” hoặc liên hệ trực tiếp bộ phận chăm sóc khách hàng của MAISON để được hỗ trợ xác minh.",
+      question: t('faq_q3'),
+      answer: t('faq_a3'),
     }
   ];
 
@@ -44,7 +38,7 @@ export function Faq({ layout = 'horizontal' }: { layout?: 'horizontal' | 'vertic
         {/* Left Column: FAQs */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-left">
-            Các câu hỏi thường gặp
+            {t('faq_title')}
           </h3>
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item, index) => (
@@ -62,12 +56,12 @@ export function Faq({ layout = 'horizontal' }: { layout?: 'horizontal' | 'vertic
         <div className="flex flex-col items-center justify-center text-center p-8 rounded-lg">
             <ShoppingBag className="h-16 w-16 text-primary mb-6" />
             <h3 className="text-2xl font-semibold mb-3 text-foreground">
-              An Tâm Tuyệt Đối
+              {t('cta_title')}
             </h3>
             <p className="text-muted-foreground mb-6">
-              Khi mọi thắc mắc đã được giải đáp, hãy tự tin khám phá bộ sưu tập chính hãng từ Maison.
+              {t('cta_desc')}
             </p>
-          <Button size="lg" className="w-full">Bắt Đầu Mua Sắm</Button>
+          <Button size="lg" className="w-full">{t('cta_button')}</Button>
         </div>
       </div>
     </section>
