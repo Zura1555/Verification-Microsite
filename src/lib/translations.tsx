@@ -63,7 +63,18 @@ export const translations = {
     faq_q1: 'Why is it necessary to verify a sales channel?',
     faq_a1: 'Verification gives you peace of mind that you are buying authentic products, avoiding the risks of fake or low-quality goods, and protecting your personal information from untrustworthy websites.',
     faq_q2: 'How can I recognize an unofficial channel?',
-    faq_a2: 'Common signs of an unofficial channel include: Misspelled domain names, unusually low prices, lack of clear contact information, no return policy, and images that are inconsistent with the brand.',
+    faq_a2: (
+      <>
+        <p className="mb-2">Common signs of an unofficial channel include:</p>
+        <ul className="list-disc space-y-1 pl-4">
+          <li>Misspelled domain names</li>
+          <li>Unusually low prices</li>
+          <li>Lack of clear contact information</li>
+          <li>No return policy</li>
+          <li>Images that are inconsistent with the brand</li>
+        </ul>
+      </>
+    ),
     faq_q3: 'Where can I report a counterfeit channel?',
     faq_a3: "Use the 'Report Suspicious Channel' button or contact MAISON's customer service directly for verification assistance.",
     cta_title: 'Clarity, Guaranteed.',
