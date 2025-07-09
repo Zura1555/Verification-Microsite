@@ -68,10 +68,10 @@ export const translations = {
         <p className="mb-2">Common signs of an unofficial channel include:</p>
         <ul className="list-disc list-inside space-y-1">
           <li>Misspelled domain names</li>
-          <li>Unusually low prices</li>
-          <li>Lack of clear contact information</li>
-          <li>No return policy</li>
-          <li>Images that are inconsistent with the brand</li>
+          <li>Suspiciously low prices</li>
+          <li>Missing or unclear contact information</li>
+          <li>No return or exchange policy</li>
+          <li>Visuals that do not match the brand's official style</li>
         </ul>
       </>
     ),
