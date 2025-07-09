@@ -42,8 +42,8 @@ export const translations = {
   },
   en: {
     hero_title: 'Maison Official Channel Verification',
-    hero_desc1: 'To avoid counterfeit or unauthorized purchases, please verify the authenticity of the store or sales channel before placing your order.',
-    hero_desc2: 'MAISON is committed to providing a safe and transparent shopping experience for all customers.',
+    hero_desc1: <>To avoid counterfeit or unauthorized purchases, please verify the authenticity<br />of the store or sales channel before placing your order.</>,
+    hero_desc2: <>MAISON is committed to providing a safe and transparent<br />shopping experience for all customers.</>,
     auth_helper: 'Or try with an example:',
     auth_placeholder: 'Enter website, Facebook, TikTok, Instagram...',
     auth_button: 'Check',
