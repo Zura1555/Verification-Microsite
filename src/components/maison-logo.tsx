@@ -11,7 +11,7 @@ export function MaisonLogo({ className, ...props }: React.HTMLAttributes<HTMLDiv
       {...props}
     >
       <Image
-        src="https://mdm.maisonrmi.com/assets/858c71b3-5aff-4c3f-b485-a07a9953097c?key=system-small-cover"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_KEEuWPcYceF0Alytq23y_kPRxFaFenewwQ&s"
         alt="Maison Logo"
         fill
         className="object-contain"
