@@ -25,8 +25,8 @@ export const translations = {
     faq_q2: 'Làm sao để nhận biết kênh không chính hãng?',
     faq_a2: (
       <>
-        <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
-        <ul className="list-none space-y-1">
+        <p>Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
+        <ul className="list-none space-y-1 mt-2">
           <li>+ Tên miền sai chính tả</li>
           <li>+ Mức giá bất thường</li>
           <li>+ Thiếu thông tin liên hệ rõ ràng</li>
@@ -50,7 +50,6 @@ export const translations = {
     auth_button: 'Check',
     result_official_title: 'Official',
     result_official_desc: "This channel is part of MAISON's official distribution network. You can shop with confidence and enjoy genuine service.",
-    result_official_button: 'Visit Official Store',
     result_brand_info_title: 'Official Channels for MLB',
     result_suspicious_title: 'Not an Official MAISON Channel',
     result_suspicious_desc: 'This channel is not found in MAISON’s official distribution network.',
@@ -65,8 +64,8 @@ export const translations = {
     faq_q2: 'How can I recognize an unofficial channel?',
     faq_a2: (
       <>
-        <p className="mb-2">Common signs of an unofficial channel include:</p>
-        <ul className="list-none space-y-1">
+        <p>Common signs of an unofficial channel include:</p>
+        <ul className="list-none space-y-1 mt-2">
           <li>+ Misspelled domain names</li>
           <li>+ Unusually low prices</li>
           <li>+ Missing or unclear contact information</li>
