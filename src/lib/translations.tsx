@@ -50,6 +50,7 @@ export const translations = {
     auth_button: 'Check',
     result_official_title: 'Official',
     result_official_desc: "This channel is part of MAISON's official distribution network. You can shop with confidence and enjoy genuine service.",
+    result_official_button: 'Visit Official Store',
     result_brand_info_title: 'Official Channels for MLB',
     result_suspicious_title: 'Not an Official MAISON Channel',
     result_suspicious_desc: 'This channel is not found in MAISON’s official distribution network.',
