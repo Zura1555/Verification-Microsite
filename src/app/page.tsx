@@ -38,7 +38,7 @@ export default function Home() {
                 <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
                   {t('hero_title')}
                 </h2>
-                <div className="max-w-2xl text-sm sm:text-base text-white/90 space-y-4">
+                <div className="max-w-2xl text-xs sm:text-base text-white/90 space-y-4">
                   <p>
                     {t('hero_desc1')}
                   </p>
