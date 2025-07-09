@@ -26,7 +26,7 @@ export const translations = {
     faq_a2: (
       <>
         <p className="mb-2">Các dấu hiệu thường gặp của kênh không chính hãng bao gồm:</p>
-        <ul className="list-disc space-y-1 pl-4">
+        <ul className="list-disc list-inside space-y-1">
           <li>Tên miền sai chính tả</li>
           <li>Mức giá bất thường</li>
           <li>Thiếu thông tin liên hệ rõ ràng</li>
@@ -66,7 +66,7 @@ export const translations = {
     faq_a2: (
       <>
         <p className="mb-2">Common signs of an unofficial channel include:</p>
-        <ul className="list-disc space-y-1 pl-4">
+        <ul className="list-disc list-inside space-y-1">
           <li>Misspelled domain names</li>
           <li>Unusually low prices</li>
           <li>Lack of clear contact information</li>
