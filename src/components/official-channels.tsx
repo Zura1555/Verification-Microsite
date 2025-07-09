@@ -135,7 +135,7 @@ export function OfficialChannels({ className }: { className?: string }) {
           (activeCategory || isFading) && "opacity-0 invisible"
         )}
       >
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {Object.values(channelData).map((category) => (
             <CategoryBlock
               key={category.name}
