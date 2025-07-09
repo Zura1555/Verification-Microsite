@@ -6,7 +6,7 @@ export const translations = {
     hero_desc1: <>Tránh rủi ro mua nhầm hàng giả – hãy kiểm tra tính chính hãng<br />của cửa hàng hoặc kênh mua sắm trước khi đặt hàng.</>,
     hero_desc2: <>MAISON cam kết mang đến trải nghiệm mua sắm an toàn và<br />minh bạch cho người tiêu dùng.</>,
     auth_helper: 'Hoặc thử với ví dụ:',
-    auth_placeholder: 'Nhập website, facebook, tiktok, instagram...',
+    auth_placeholder: 'Nhập website, Facebook, TikTok, Instagram...',
     auth_button: 'Kiểm tra',
     result_official_title: 'Chính hãng',
     result_official_desc: 'Trang web này thuộc hệ thống phân phối chính thức của MAISON. Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.',
