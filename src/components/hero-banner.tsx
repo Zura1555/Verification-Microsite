@@ -45,7 +45,7 @@ export function HeroBanner() {
       <Carousel className="w-full" opts={{ loop: true }}>
         <CarouselContent>
           {bannerImages.map((image, index) => (
-            <CarouselItem key={index} className="relative w-full aspect-[16/7]">
+            <CarouselItem key={index} className="relative w-full aspect-[4/3] sm:aspect-[16/7]">
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -59,8 +59,8 @@ export function HeroBanner() {
           ))}
         </CarouselContent>
         {/* Static text overlay */}
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 py-20 sm:py-24 pointer-events-none">
-          <header className="flex flex-col items-center space-y-4">
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 py-8 sm:py-24 pointer-events-none">
+          <header className="flex flex-col items-center space-y-3 sm:space-y-4">
             <div className="relative h-10 w-40 sm:h-12 sm:w-48">
               <Image
                 src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2022/07/logo.png?fit=1201%2C629&ssl=1"
@@ -70,10 +70,10 @@ export function HeroBanner() {
                 data-ai-hint="logo white"
               />
             </div>
-            <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="font-headline text-2xl font-semibold tracking-tight sm:text-4xl">
               {t('hero_title')}
             </h2>
-            <div className="max-w-[27.72rem] sm:max-w-[32.34rem] text-xs sm:text-base text-white/90 space-y-4">
+            <div className="max-w-md text-xs sm:text-base text-white/90 space-y-2 sm:space-y-4">
               <p>
                 {t('hero_desc1')}
               </p>
