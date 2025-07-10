@@ -12,10 +12,10 @@ import {
 
 const bannerImages = [
   {
-    src: "https://ik.imagekit.io/zmblm08qi/Image%20(1).jfif?updatedAt=1752113883435",
+    src: "https://ik.imagekit.io/zmblm08qi/image%20(1).jfif?updatedAt=1752113674787",
     alt: "Woman in a colorful dress",
     hint: "fashion colorful",
-    position: "object-top"
+    position: "object-center"
   },
   {
     src: "https://ik.imagekit.io/zmblm08qi/image%20(2).jfif?updatedAt=1752113746003",
@@ -33,7 +33,7 @@ const bannerImages = [
     src: "https://ik.imagekit.io/zmblm08qi/Image%20(3).jfif?updatedAt=1752113883397",
     alt: "Man in stylish streetwear",
     hint: "fashion streetwear",
-    position: "object-top"
+    position: "object-center"
   },
   {
     src: "https://placehold.co/1600x700.png",
