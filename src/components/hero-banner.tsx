@@ -51,7 +51,7 @@ export function HeroBanner() {
       <Carousel className="w-full" opts={{ loop: true }}>
         <CarouselContent>
           {bannerImages.map((image, index) => (
-            <CarouselItem key={index} className="relative w-full aspect-[4/3] sm:aspect-[16/7]">
+            <CarouselItem key={index} className="relative w-full aspect-[4/3] sm:aspect-[16/5]">
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -79,7 +79,7 @@ export function HeroBanner() {
             <h2 className="font-headline text-xl font-semibold tracking-tight sm:text-4xl">
               {t('hero_title')}
             </h2>
-            <div className="max-w-xl text-xs sm:text-base text-white/90 space-y-2 sm:space-y-4">
+            <div className="max-w-2xl text-xs sm:text-base text-white/90 space-y-2 sm:space-y-4">
               <p>
                 {t('hero_desc1')}
               </p>
