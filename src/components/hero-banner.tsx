@@ -9,7 +9,7 @@ export function HeroBanner() {
   return (
     <div className="relative w-full">
       <Image
-        src="https://www.fashionnetwork.cn/uploads/20250627/d9b0efb878c6bfc1dd33aa3913960f5c.jpeg"
+        src="https://gb.maxandco.com/mediaObject/maxandco4/-Co.LLABORATION/Ciao-discoteca-italiana/ASSET-DESKTOP-/magico_adriatico_maxandco_hero_desktop(1)/original/magico_adriatico_maxandco_hero_desktop(1).jpg"
         alt="Fashion model posing"
         fill
         className="object-cover object-center"
