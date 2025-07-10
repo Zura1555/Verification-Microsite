@@ -12,9 +12,9 @@ import {
 
 const bannerImages = [
   {
-    src: "https://ik.imagekit.io/zmblm08qi/image%20(1).jfif?updatedAt=1752113674787",
-    alt: "Fashion model posing",
-    hint: "fashion model",
+    src: "https://ik.imagekit.io/zmblm08qi/Image%20(1).jfif?updatedAt=1752113883435",
+    alt: "Woman in a colorful dress",
+    hint: "fashion colorful",
     position: "object-center"
   },
   {
@@ -33,6 +33,12 @@ const bannerImages = [
     src: "https://ik.imagekit.io/zmblm08qi/Image%20(3).jfif?updatedAt=1752113883397",
     alt: "Man in stylish streetwear",
     hint: "fashion streetwear",
+    position: "object-center"
+  },
+  {
+    src: "https://placehold.co/1600x700.png",
+    alt: "Placeholder image of a fashion runway",
+    hint: "fashion runway",
     position: "object-center"
   }
 ];
@@ -73,7 +79,7 @@ export function HeroBanner() {
             <h2 className="font-headline text-2xl font-semibold tracking-tight sm:text-4xl">
               {t('hero_title')}
             </h2>
-            <div className="max-w-lg text-xs sm:text-base text-white/90 space-y-2 sm:space-y-4">
+            <div className="max-w-xl text-xs sm:text-base text-white/90 space-y-2 sm:space-y-4">
               <p>
                 {t('hero_desc1')}
               </p>
