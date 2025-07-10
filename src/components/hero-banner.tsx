@@ -15,7 +15,7 @@ const bannerImages = [
     src: "https://ik.imagekit.io/zmblm08qi/Image%20(1).jfif?updatedAt=1752113883435",
     alt: "Woman in a colorful dress",
     hint: "fashion colorful",
-    position: "object-center"
+    position: "object-top"
   },
   {
     src: "https://ik.imagekit.io/zmblm08qi/image%20(2).jfif?updatedAt=1752113746003",
@@ -33,13 +33,13 @@ const bannerImages = [
     src: "https://ik.imagekit.io/zmblm08qi/Image%20(3).jfif?updatedAt=1752113883397",
     alt: "Man in stylish streetwear",
     hint: "fashion streetwear",
-    position: "object-center"
+    position: "object-top"
   },
   {
     src: "https://placehold.co/1600x700.png",
     alt: "Placeholder image of a fashion runway",
     hint: "fashion runway",
-    position: "object-center"
+    position: "object-top"
   }
 ];
 
@@ -66,7 +66,7 @@ export function HeroBanner() {
         </CarouselContent>
         {/* Static text overlay */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 py-8 sm:py-24 pointer-events-none">
-          <header className="flex flex-col items-center space-y-3 sm:space-y-4">
+          <header className="flex flex-col items-center space-y-2 sm:space-y-3">
             <div className="relative h-16 w-64 sm:h-36 sm:w-[576px]">
               <Image
                 src="https://ik.imagekit.io/zmblm08qi/MAISON%20RMI_Logo_W%20(1).png?updatedAt=1752115521710"
@@ -79,7 +79,7 @@ export function HeroBanner() {
             <h2 className="font-headline text-xl font-semibold tracking-tight sm:text-4xl">
               {t('hero_title')}
             </h2>
-            <div className="max-w-2xl text-xs sm:text-base text-white/90 space-y-2 sm:space-y-4">
+            <div className="max-w-xl text-xs sm:text-base text-white/90 space-y-2 sm:space-y-4">
               <p>
                 {t('hero_desc1')}
               </p>
