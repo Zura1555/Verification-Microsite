@@ -14,22 +14,26 @@ const bannerImages = [
   {
     src: "https://ik.imagekit.io/zmblm08qi/image%20(1).jfif?updatedAt=1752113674787",
     alt: "Fashion model posing",
-    hint: "fashion model"
+    hint: "fashion model",
+    position: "object-center"
   },
   {
     src: "https://ik.imagekit.io/zmblm08qi/image%20(2).jfif?updatedAt=1752113746003",
     alt: "Fashion retail store interior",
-    hint: "fashion retail"
+    hint: "fashion retail",
+    position: "object-top"
   },
   {
     src: "https://ik.imagekit.io/zmblm08qi/Image%20(1).jfif?updatedAt=1752113883435",
     alt: "Woman in a colorful dress",
-    hint: "fashion colorful"
+    hint: "fashion colorful",
+    position: "object-top"
   },
   {
     src: "https://ik.imagekit.io/zmblm08qi/Image%20(3).jfif?updatedAt=1752113883397",
     alt: "Man in stylish streetwear",
-    hint: "fashion streetwear"
+    hint: "fashion streetwear",
+    position: "object-center"
   }
 ];
 
@@ -46,7 +50,7 @@ export function HeroBanner() {
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover object-center"
+                className={`object-cover ${image.position}`}
                 data-ai-hint={image.hint}
                 priority={index === 0}
               />
