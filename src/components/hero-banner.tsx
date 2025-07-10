@@ -69,7 +69,7 @@ export function HeroBanner() {
           <header className="flex flex-col items-center space-y-3 sm:space-y-4">
             <div className="relative h-10 w-40 sm:h-12 sm:w-48">
               <Image
-                src="https://i0.wp.com/maisonrmi.com/wp-content/uploads/2022/07/logo.png?fit=1201%2C629&ssl=1"
+                src="https://ik.imagekit.io/zmblm08qi/MAISON%20RMI_Logo_W%20(1).png?updatedAt=1752115521710"
                 alt="Maison Logo"
                 fill
                 className="object-contain"
