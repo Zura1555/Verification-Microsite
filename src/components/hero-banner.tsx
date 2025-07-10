@@ -17,9 +17,9 @@ const bannerImages = [
     hint: "fashion model"
   },
   {
-    src: "https://placehold.co/1600x900.png",
-    alt: "Placeholder image of clothing rack",
-    hint: "clothing rack"
+    src: "https://ik.imagekit.io/zmblm08qi/image%20(2).jfif?updatedAt=1752113746003",
+    alt: "Fashion retail store interior",
+    hint: "fashion retail"
   },
   {
     src: "https://placehold.co/1600x900.png",
