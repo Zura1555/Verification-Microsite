@@ -22,14 +22,14 @@ const bannerImages = [
     hint: "fashion retail"
   },
   {
-    src: "https://placehold.co/1600x900.png",
-    alt: "Placeholder image of a storefront",
-    hint: "storefront"
+    src: "https://ik.imagekit.io/zmblm08qi/Image%20(1).jfif?updatedAt=1752113883435",
+    alt: "Woman in a colorful dress",
+    hint: "fashion colorful"
   },
   {
-    src: "https://placehold.co/1600x900.png",
-    alt: "Placeholder image of accessories",
-    hint: "fashion accessories"
+    src: "https://ik.imagekit.io/zmblm08qi/Image%20(3).jfif?updatedAt=1752113883397",
+    alt: "Man in stylish streetwear",
+    hint: "fashion streetwear"
   }
 ];
 
