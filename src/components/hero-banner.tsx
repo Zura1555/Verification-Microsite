@@ -67,7 +67,7 @@ export function HeroBanner() {
         {/* Static text overlay */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 pt-8 pb-12 sm:py-24 pointer-events-none">
           <header className="flex flex-col items-center">
-            <div className="relative h-16 w-64 sm:h-36 sm:w-[576px]">
+            <div className="relative h-24 w-64 sm:h-36 sm:w-[576px]">
               <Image
                 src="https://ik.imagekit.io/zmblm08qi/MAISON%20RMI_Logo_W%20(1).png?updatedAt=1752115521710"
                 alt="Maison Logo"
