@@ -26,6 +26,11 @@ const bannerImages = [
     alt: "Placeholder image of a storefront",
     hint: "storefront"
   },
+  {
+    src: "https://placehold.co/1600x900.png",
+    alt: "Placeholder image of accessories",
+    hint: "fashion accessories"
+  }
 ];
 
 export function HeroBanner() {
