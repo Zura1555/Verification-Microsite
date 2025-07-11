@@ -10,7 +10,7 @@ export const translations = {
     auth_button: 'Kiểm tra',
     result_official_title: 'Chính hãng',
     result_official_desc: 'Trang web này thuộc hệ thống phân phối chính thức của MAISON. Bạn có thể yên tâm mua sắm và trải nghiệm dịch vụ chính hãng.',
-    result_official_button: 'Visit Official Store',
+    result_official_button: 'Truy cập Website',
     result_brand_info_title: 'Kênh chính thức của MLB',
     result_suspicious_title: 'Không thuộc hệ thống MAISON',
     result_suspicious_desc: 'Chúng tôi không tìm thấy kênh này trong danh sách các cửa hàng chính hãng thuộc hệ thống phân phối của MAISON.',
