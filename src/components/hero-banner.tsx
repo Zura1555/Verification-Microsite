@@ -59,6 +59,8 @@ export function HeroBanner() {
                 className={`object-cover ${image.position}`}
                 data-ai-hint={image.hint}
                 priority={index === 0}
+                sizes="100vw"
+                quality={90}
               />
               <div className="absolute inset-0 bg-black/50 z-10" />
             </CarouselItem>
@@ -74,6 +76,8 @@ export function HeroBanner() {
                 fill
                 className="object-contain"
                 data-ai-hint="logo white"
+                sizes="(max-width: 640px) 256px, 576px"
+                quality={90}
               />
             </div>
             <h2 className="font-headline text-xl font-semibold tracking-tight sm:text-4xl mt-1 sm:mt-2">
